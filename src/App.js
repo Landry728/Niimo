@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import Map from './components/MapContainer';
 import Nav from './components/NavBar';
 import './App.css';
+import NewsFeed from './components/NewsFeed.js'
 
 class App extends Component {
   render() {
@@ -19,7 +20,9 @@ class App extends Component {
         <div className="Map">
           <Map />
         </div>
+        <NewsFeed />
       </div>
+      
     );
   }
 }
