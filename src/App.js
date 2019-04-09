@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import Map from './components/MapContainer';
-import Nav from './components/NavBar';
+import React, { Component } from 'react'
+import Nav from './components/NavBar'
+import Locations from './components/Locations'
 import './App.css';
 
 class App extends Component {
@@ -9,16 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Button
-          tag="a"
-          color="success"
-          size="large"
-          href="http://reactstrap.github.io"
-          target="_blank"
-        />
-        <div className="Map">
-          <Map />
-        </div>
+        <Locations />
       </div>
     );
   }
