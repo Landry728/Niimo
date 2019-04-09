@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-export default class NavBar extends Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
     this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -14,10 +15,20 @@ export default class NavBar extends Component {
       collapsed: !this.state.collapsed
     });
   }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
+
   render() {
+
+    if (this.props.location.pathname == '/') {
+      return null
+    }
+
     return (
       <>
-        <Navbar color="dark" dark>
+        <Navbar id="Navigation"color="dark" dark>
           <NavbarBrand href="/" className="mr-auto">niimo</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
@@ -35,3 +46,5 @@ export default class NavBar extends Component {
     )
   }
 }
+
+export default withRouter(NavBar)
