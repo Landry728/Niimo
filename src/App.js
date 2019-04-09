@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import Map from './components/MapContainer';
+import Home from './components/home'
+import Maps from './components/Map';
 import Nav from './components/NavBar';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Nav />
-        <Button
-          tag="a"
-          color="success"
-          size="large"
-          href="http://reactstrap.github.io"
-          target="_blank"
-        />
-        <div className="Map">
-          <Map />
-        </div>
-      </div>
+      <>
+        <Router>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/map" component={Maps} />
+          </Switch>
+        </Router>
+      </>
     );
   }
 }
