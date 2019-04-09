@@ -9,7 +9,7 @@ import NewsFeed from './components/NewsFeed.js'
 class App extends Component {
   render() {
     return (
-      <>
+      <div className="App">
         <Router>
           <Nav />
           <Switch>
@@ -18,7 +18,7 @@ class App extends Component {
             <Route exact path="/feed" component={NewsFeed} />
           </Switch>
         </Router>
-      </>
+      </div>
     );
   }
 }
