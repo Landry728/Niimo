@@ -23,7 +23,7 @@ class NavBar extends Component {
 
   render() {
 
-    if (this.props.location.pathname == '/') {
+    if (this.props.location.pathname === '/') {
       return null
     }
 
