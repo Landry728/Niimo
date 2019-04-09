@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import Logo from '../Images/Logo.jpg'
+import Logo from '../images/Logo.jpg'
 
 export default class Home extends Component {
     render() {
