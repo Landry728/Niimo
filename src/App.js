@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from './components/home'
+import Home from './components/Home'
 import Maps from './components/Map';
 import Nav from './components/NavBar';
 import './App.css';
@@ -7,13 +7,6 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NewsFeed from './components/NewsFeed.js'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      color1: 'yellow',
-      color2: 'blue'
-    }
-  }
   render() {
     return (
       <div className="App">
