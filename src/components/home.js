@@ -23,9 +23,6 @@ export default class Home extends Component {
             <Link to="/map" ><Button src="localhost:3000/map" size="lg">Maps are the future</Button></Link>
           </Col>
         </Row>
-
-
-
       </>
     )
   }

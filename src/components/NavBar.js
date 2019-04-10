@@ -34,13 +34,10 @@ class NavBar extends Component {
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/map">Location Finder</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="../Pages/NewsFeed.js">News Feed</NavLink>
+                <NavLink href="/feed">News Feed</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
