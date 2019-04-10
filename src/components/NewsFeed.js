@@ -6,7 +6,8 @@ import {
   CardBody,
   CardTitle,
   CardLink,
-  Col
+  Col,
+  Row
 } from "reactstrap";
 
 export default class NewsFeed extends Component {
@@ -15,8 +16,9 @@ export default class NewsFeed extends Component {
   return (
     <div>
       {/* *** FIRST CARD *** */}
-      <Col sm="5">
-      <Card color="dark" dark>
+      <Row style={{ border: '10', justifyContent: 'center', }}>
+      <Col sm="3">
+      <Card color="dark" dark style = {{ border: '3px white solid'}}>
         <CardImg className="text-light" light
           top
           width="100%"
@@ -33,9 +35,11 @@ export default class NewsFeed extends Component {
         </CardBody>
       </Card>
       </Col>
+      
       {/* *** SECOND CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+      
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -52,9 +56,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+
     {/* *** THIRD CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -71,9 +77,13 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    </Row>
+    
     {/* *** FOURTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+    
+    <Row style={{ border: '10', justifyContent: 'center', }}>
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -90,9 +100,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    
     {/* *** FIFTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+   
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -109,9 +121,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+
     {/* *** SIXTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -128,9 +142,13 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    </Row>
+
     {/* *** SEVENTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Row style={{ justifyContent: 'center', }}>
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -147,9 +165,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+
     {/* *** EIGHTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -166,9 +186,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    
     {/* *** NINTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+    
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -185,9 +207,13 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    </Row>
+
     {/* *** TENTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Row style={{ border: '10', justifyContent: 'center', }}>
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -204,9 +230,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    
     {/* *** ELEVENTH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+    
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -223,9 +251,11 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+
     {/* *** 12TH CARD *** */}
-    <Col sm="5">
-    <Card color="dark" dark>
+
+    <Col sm="3">
+    <Card color="dark" dark style = {{ border: '3px white solid'}}>
       <CardImg className="text-light" light
         top
         width="100%"
@@ -242,6 +272,7 @@ export default class NewsFeed extends Component {
       </CardBody>
     </Card>
     </Col>
+    </Row>
   </div>
   );
 };
