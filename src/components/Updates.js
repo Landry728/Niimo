@@ -64,17 +64,17 @@ export default class ControlledCarousel extends React.Component {
                         <Carousel.Caption>
                             <h3>Stage 3</h3>
                             <p>
-                         
-                  </p>
+
+                            </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
                 <br />
-                <Card border="secondary" style={{ width: '100rem', justifyContent: 'center', marginLeft: '8%'}}>
+                <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
                     <Card.Header>Header</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            Some quick example text to build on the card title 
+                            Some quick example text to build on the card title
       </Card.Text>
                     </Card.Body>
                 </Card>
