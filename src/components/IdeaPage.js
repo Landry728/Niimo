@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
 export default class IdeaPage extends Component {
   render() {
 
   return (
     <div>
-    <Row style={{ marginTop: '0.5%', width: '100%', height: 300, display: 'flex', alignpics: 'center', justifyContent: 'center',}}>
+    <Row style={{ marginTop: '0.5%', width: '100%', height: 300, display: 'flex', justifyContent: 'center',}}>
     <Col sm="5">
-    <Card color="dark" dark style = {{ border: '3px white solid'}}>
-    <Card.Title className="text-light">Downtown Farmer's Market</Card.Title>
+    <Card bg="dark" text="white" style = {{ border: '3px white solid', }}>
+    <Card.Title style={{ marginTop: 10, textDecoration: 'underline', }} className="text-light">Downtown Farmer's Market</Card.Title>
        <Card.Img className="text-light" light
         top
         width="100%"
@@ -26,14 +27,20 @@ export default class IdeaPage extends Component {
         contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
         There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables.
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
       </Card.Body>
     </Card>
-    <InputGroup size="lg" style={{ marginTop: '1%' }}>
-        <InputGroup.Append>
-          <Button color="secondary">Submit</Button>
-        </InputGroup.Append>
-      </InputGroup>
+    
+    <InputGroup style={{ marginTop: 10 }}className="mb-3">
+    <Form.Control
+      placeholder="Share your thoughts here!"
+      aria-label="Recipient's username"
+      aria-describedby="basic-addon2"
+    />
+    <InputGroup.Append>
+      <Button variant="outline-secondary">Submit</Button>
+    </InputGroup.Append>
+  </InputGroup>
+
     </Col>
     {/* REMOVE THIS ROW LATER */}
     </Row> 
