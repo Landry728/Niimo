@@ -42,7 +42,7 @@ export default class NewIdea extends Component {
   render() {
     return (
       <Form>
-        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid' }}>
+        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" name="title" placeholder="Enter Title" onChange={this.handleChange.bind(this)} />
@@ -77,6 +77,10 @@ export default class NewIdea extends Component {
               <Form.Control type="number" name="zip" onChange={this.handleChange.bind(this)} />
             </Form.Group>
           </Form.Row>
+
+          {/* Image Upload Code */}
+          <p>Got any photo(s)?</p>
+            <Button as="input" type="file" marginTop='10' variant="outline-secondary" />
 
           <Button variant="primary" type="button" onClick={this.submitIdea.bind(this)}>
             Submit
