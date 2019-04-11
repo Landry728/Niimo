@@ -36,17 +36,17 @@ export default class ControlledCarousel extends React.Component {
                 >
                     <Carousel.Item>
                         <img width={900} height={500}
-                            src={require("/Users/student/Desktop/ReformBham/src/images/Uptown.jpg")}
+                            src={require("../images/Uptown.jpg")}
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>Stage 3</h3>
+                            <h3>Stage 1</h3>
                             <p></p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img width={900} height={500}
-                            src={require("/Users/student/Desktop/ReformBham/src/images/abandon6.jpg")}
+                            src={require("../images/abandon6.jpg")}
                             alt="Third slide"
                         />
 
@@ -57,12 +57,12 @@ export default class ControlledCarousel extends React.Component {
                     </Carousel.Item>
                     <Carousel.Item>
                         <img width={900} height={500}
-                            src={require("/Users/student/Desktop/ReformBham/src/images/abandon4.jpg")}
+                            src={require("../images/abandon4.jpg")}
                             alt="Third slide"
                         />
 
                         <Carousel.Caption>
-                            <h3>Stage 1</h3>
+                            <h3>Stage 3</h3>
                             <p>
                          
                   </p>
