@@ -8,6 +8,7 @@ import NewsFeed from './components/NewsFeed.js';
 import Ideas from './components/IdeaPage.js';
 import NewIdea from './components/NewIdea'
 import Updates from './components/Updates';
+import NewUpdate from './components/NewUpdate';
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/idea" component={Ideas} />
             <Route exact path="/newidea" component={NewIdea} />
             <Route exact path="/update" component={Updates} />
+            <Route exact path="/newupdate" component={NewUpdate} />
           </Switch>
         </Router>
       </div>

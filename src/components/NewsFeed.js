@@ -10,14 +10,21 @@ export default class NewsFeed extends Component {
   return (
 
     <div>
-  <DropdownButton style={{display: 'flex', justifyContent: 'center', marginTop: 10,}} size = "lg" variant= "secondary" id="dropdown-basic-button" title="Filter">
+      <Row style={{display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10}}>
+  <DropdownButton style={{ marginRight: 30}} size = "lg" variant= "secondary" id="dropdown-basic-button" title="Filter"  >
   <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
   <Dropdown.Divider />
   <Dropdown.Item href="#/action-2">Downtown</Dropdown.Item>
   <Dropdown.Divider />
-  <Dropdown.Item href="#/action-3">Northside</Dropdown.Item>
+  <Dropdown.Item href="#/action-3">Uptown</Dropdown.Item>
+      </DropdownButton>
+      <DropdownButton style={{ marginRight: 60 }} size = "lg" variant= "secondary" id="dropdown-basic-button" title="Sort">
+  <Dropdown.Item href="#/action-1">Most Upvotes</Dropdown.Item>
   <Dropdown.Divider />
-      </DropdownButton>;
+  <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
+      </DropdownButton>
+      </Row>
+
      
       {/* *** FIRST CARD *** */}
 
@@ -31,12 +38,13 @@ export default class NewsFeed extends Component {
           alt="Card image cap"
         />
         <Card.Body className="text-light" light>
-          <Card.Title>Building Permits Approved</Card.Title>
+          <Card.Title>Uptown Dance Club</Card.Title>
           <Card.Text>
-            The following permits for construction and renovation have been
-            granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
+            I'm thinking we can make this baby into a real nice dance club in uptown.
+            There's none around, and this could turn into a really nice upscale
+            addition for the area...
           </Card.Text>
-          {/* <CardLink href="#">Learn More</CardLink> */}
+          <Card.Link href="/idea">Learn More</Card.Link>
         </Card.Body>
       </Card>
       </Col>
@@ -57,7 +65,7 @@ export default class NewsFeed extends Component {
           The lease for our building was obtained today by Corporate Realty.
           Renovation will be underway within the following weeks...
         </Card.Text>
-        {/* <Card.Link href="#">Learn More</CardLink> */}
+        <Card.Link href="/update">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -73,12 +81,12 @@ export default class NewsFeed extends Component {
         alt="Card image cap"
       />
       <Card.Body className="text-light" light>
-        <Card.Title>Building Permits Approved</Card.Title>
+        <Card.Title>New Innovation Hub</Card.Title>
         <Card.Text>
-          The following permits for construction and renovation have been
-          granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
+          You know what Birmingham needs? Another Innovation Hub! This old rundown
+          strip mall sure would make a nice one...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="/idea">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -101,7 +109,7 @@ export default class NewsFeed extends Component {
         The lease for our building was obtained today by Corporate Realty.
         Renovation will be underway within the following weeks...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="/update">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -122,7 +130,7 @@ export default class NewsFeed extends Component {
           The following permits for construction and renovation have been
           granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -138,12 +146,13 @@ export default class NewsFeed extends Component {
         alt="Card image cap"
       />
       <Card.Body className="text-light" light>
-        <Card.Title>We have the lease!</Card.Title>
+        <Card.Title>Downtown Farmers Market</Card.Title>
         <Card.Text>
-        The lease for our building was obtained today by Corporate Realty.
-        Renovation will be underway within the following weeks...
+        This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
+        contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
+        There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -161,12 +170,12 @@ export default class NewsFeed extends Component {
         alt="Card image cap"
       />
       <Card.Body className="text-light" light>
-        <Card.Title>Building Permits Approved</Card.Title>
+        <Card.Title>New Innovation Hub</Card.Title>
         <Card.Text>
-        The following permits for construction and renovation have been
-        granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
+        You know what Birmingham needs? Another Innovation Hub! This old rundown
+          strip mall sure would make a nice one...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -187,7 +196,7 @@ export default class NewsFeed extends Component {
         The lease for our building was obtained today by Corporate Realty.
         Renovation will be underway within the following weeks...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -208,7 +217,7 @@ export default class NewsFeed extends Component {
         The following permits for construction and renovation have been
         granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -231,7 +240,7 @@ export default class NewsFeed extends Component {
         The lease for our building was obtained today by Corporate Realty.
         Renovation will be underway within the following weeks...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -252,7 +261,7 @@ export default class NewsFeed extends Component {
         The following permits for construction and renovation have been
         granted by the city of Birmingham: Electrical, Plumbing, and HVAC...
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
@@ -268,12 +277,13 @@ export default class NewsFeed extends Component {
         alt="Card image cap"
       />
       <Card.Body className="text-light" light>
-        <Card.Title>We have the lease!</Card.Title>
+        <Card.Title>Downtown Farmers Market</Card.Title>
         <Card.Text>
-        The lease for our building was obtained today by Corporate Realty.
-        Renovation will be underway within the following weeks...
+        This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
+        contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
+        There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables.
         </Card.Text>
-        {/* <CardLink href="#">Learn More</CardLink> */}
+        <Card.Link href="#">Learn More</Card.Link>
       </Card.Body>
     </Card>
     </Col>
