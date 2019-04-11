@@ -3,6 +3,10 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import ApiKey from '../config/GoogleApiKey';
 import GreenPin from '../images/greenPin.png'
 import BluePin from '../images/bluePin.png'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Badge from 'react-bootstrap/Badge'
+import Button from 'react-bootstrap/Button'
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -41,6 +45,13 @@ export class MapContainer extends Component {
     }
     return (
       <div>
+  <h4> 
+    <Badge pill variant="primary">    Needs an idea
+  </Badge>
+    <Badge pill variant="success">    Has an Idea
+  </Badge>
+ </h4>
+        <br />
         <Map
           google={this.props.google}
           onClick={this.onMapClicked}

@@ -76,6 +76,7 @@ export default class ControlledCarousel extends React.Component {
                         <Card.Text>
                             Some quick example text to build on the card title
       </Card.Text>
+      
                     </Card.Body>
                 </Card>
             </div>
