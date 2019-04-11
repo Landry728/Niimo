@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './components/Home'
 import Maps from './components/Map';
-import Nav from './components/NavBar';
+import NavBar from './components/NavBar';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NewsFeed from './components/NewsFeed.js';
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Nav />
+          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} this={this}/>
             <Route exact path="/map" component={Maps} />
