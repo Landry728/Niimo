@@ -1,92 +1,85 @@
 import React, { Component } from "react";
-import {
-    Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Card, CardImg, CardText, CardBody, CardTitle, CardLink, Col, Button
-} from 'reactstrap';
+import Carousel from 'react-bootstrap/Carousel'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-const items = [
-    {
-        require: 'src/images/Uptown.jpg',
-        altText: 'Update 1',
-        caption: 'Update 1'
-    },
-    {
-        src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
-        altText: 'Update 2',
-        caption: 'Update 2'
-    },
-    {
-        src: 'src/images/Uptown.jpg',
-        altText: 'Update 3',
-        caption: 'Update 3'
-    }
-];
+export default class ControlledCarousel extends React.Component {
+    constructor(props, context) {
+        super(props, context);
 
-class Pics extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { activeIndex: 0 };
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-        this.goToIndex = this.goToIndex.bind(this);
-        this.onExiting = this.onExiting.bind(this);
-        this.onExited = this.onExited.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
+
+        this.state = {
+            index: 0,
+            direction: null,
+        };
     }
 
-    onExiting() {
-        this.animating = true;
-    }
-
-    onExited() {
-        this.animating = false;
-    }
-
-    next() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-        this.setState({ activeIndex: nextIndex });
-    }
-
-    previous() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-        this.setState({ activeIndex: nextIndex });
-    }
-
-    goToIndex(newIndex) {
-        if (this.animating) return;
-        this.setState({ activeIndex: newIndex });
+    handleSelect(selectedIndex, e) {
+        this.setState({
+            index: selectedIndex,
+            direction: e.direction,
+        });
     }
 
     render() {
-
-        const { activeIndex } = this.state;
-
-        const slides = items.map((item) => {
-            return (
-                <CarouselItem
-                    onExiting={this.onExiting}
-                    onExited={this.onExited}
-                    key={item.src}
-                >
-                    <img src={item.src} alt={item.altText} />
-                    <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-                </CarouselItem>
-            );
-        });
+        const { index, direction } = this.state;
 
         return (
-            <Carousel
-                activeIndex={activeIndex}
-                next={this.next}
-                previous={this.previous}
-            >
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-                {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-            </Carousel>         
-);
-    }
+            <div style={{ alighnItems: 'center', }}>
+                <h1 style={{ color: 'white' }}> Title </h1>
+                <br />
+                <Carousel
+                    activeIndex={index}
+                    direction={direction}
+                    onSelect={this.handleSelect}
+                >
+                    <Carousel.Item>
+                        <img width={900} height={500}
+                            src={require("/Users/student/Desktop/ReformBham/src/images/Uptown.jpg")}
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>Stage 3</h3>
+                            <p></p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img width={900} height={500}
+                            src={require("/Users/student/Desktop/ReformBham/src/images/abandon6.jpg")}
+                            alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>Stage 2</h3>
+                            <p></p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img width={900} height={500}
+                            src={require("/Users/student/Desktop/ReformBham/src/images/abandon4.jpg")}
+                            alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>Stage 1</h3>
+                            <p>
+                         
+                  </p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+                <br />
+                <Card border="secondary" style={{ width: '100rem', justifyContent: 'center', marginLeft: '8%'}}>
+                    <Card.Header>Header</Card.Header>
+                    <Card.Body>
+                        <Card.Text>
+                            Some quick example text to build on the card title 
+      </Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
+        );
+    };
 }
 
-export default Pics;
