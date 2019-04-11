@@ -13,9 +13,9 @@ export default class Home extends Component {
           <img src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' />
         </div>
         <br />
-        <div style={{ width: '100%' }}>
-          <div style={{ width: '60%', marginTop: '10%', marginLeft: "20%", marginRight: "20%", marginBottom: '7%', color: 'white'}}>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit aptent senectus, nam iaculis sociis curabitur congue interdum conubia.
+        <div style={{ width: '100%',}}>
+          <div style={{ fontSize: 50, width: '60%', marginTop: '10%', marginLeft: "20%", marginRight: "20%", marginBottom: '7%', color: 'white'}}>
+            niimo - Don't Stop Searching.
           </div>
         </div>
         <Row>
