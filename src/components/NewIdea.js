@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import * as firebase from 'firebase'
 
 export default class NewIdea extends Component {
   constructor(props) {
@@ -36,7 +37,14 @@ export default class NewIdea extends Component {
   }
 
   submitIdea = () => {
-    console.log(this.state)
+    fetch('https://us-central1-niimo-1554735151740.cloudfunctions.net/helloWorld',{
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000'
+    }
+  }
+    )
+    .then(res => console.log(res));
   }
 
   render() {
