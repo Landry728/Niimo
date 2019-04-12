@@ -45,8 +45,8 @@ export class MapContainer extends Component {
     }
     return (
       <div>
-  <h4> 
-    <Badge pill variant="primary">    Needs an idea
+  <h4 style={{marginTop: '4vh'}}> 
+    <Badge style={{marginRight: '2%'}} pill variant="primary">    Needs an idea
   </Badge>
     <Badge pill variant="success">    Has an Idea
   </Badge>
