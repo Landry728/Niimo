@@ -10,7 +10,6 @@ import NewIdea from './components/NewIdea'
 import Updates from './components/Updates';
 import NewUpdate from './components/NewUpdate';
 
-
 class App extends Component {
   render() {
     return (
@@ -18,13 +17,13 @@ class App extends Component {
         <Router>
           <NavBar />
           <Switch>
-            <Route exact path="/" component={Home} this={this}/>
-            <Route exact path="/map" component={Maps} />
-            <Route exact path="/feed" component={NewsFeed} />
-            <Route exact path="/idea" component={Ideas} />
-            <Route exact path="/newidea" component={NewIdea} />
-            <Route exact path="/update" component={Updates} />
-            <Route exact path="/newupdate" component={NewUpdate} />
+            <Route exact path="/" component={Home} />
+            <Route path="/map" component={Maps} />
+            <Route path="/feed" component={NewsFeed} />
+            <Route path="/idea" component={Ideas} />
+            <Route path="/newidea" component={NewIdea} />
+            <Route path="/update" component={Updates} />
+            <Route path="/newupdate" component={NewUpdate} />
           </Switch>
         </Router>
       </div>
