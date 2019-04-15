@@ -51,6 +51,8 @@ export class MapContainer extends Component {
     <Badge pill variant="success">    Has an Idea
   </Badge>
  </h4>
+
+
         <br />
         <Map
           google={this.props.google}
