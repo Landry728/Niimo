@@ -1,15 +1,56 @@
 import React, { Component } from "react";
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
+import IdeaCard from './IdeaCard'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import firebase from '../config/Firebase'
+import "firebase/database"
+import "firebase/storage"
+
+const ideaRef = firebase.database().ref().child('ideas');
+const updateRef = firebase.database().ref().child('updates');
+const imageRef = firebase.storage().ref('images/1.jpg');
 
 export default class NewsFeed extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ideas: [],
+      updates: [],
+      images: []
+    }
+  }
+
+  componentDidMount() {
+    let ideas = [];
+    let updates = [];
+    // let images = [];
+    ideaRef.limitToFirst(3).on('value', snap => {
+      snap.forEach(child => {
+        console.log(child.key)
+        ideas.push(child.val());
+      })
+      this.setState({ideas});
+      // console.log(this.state.ideas);
+    });
+    updateRef.on('value', snap => {
+      updates.push(snap.val());
+      this.setState({updates});
+      // console.log(this.state.updates);
+    });
+    imageRef.getDownloadURL().then(url => {
+      console.log(url);
+      // images.push(url);
+      // this.setState({images});
+      // console.log(this.state.images);
+    })
+  }
+
   render() {
+    const {ideas} = this.state;
     return (
       <>
-        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
+        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 20 }}>
           <DropdownButton style={{ marginRight: 30 }} size="lg" variant="secondary" id="dropdown-basic-button" title="Filter"  >
             <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
@@ -25,8 +66,11 @@ export default class NewsFeed extends Component {
         </Row>
 
         {/* *** FIRST CARD *** */}
-        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
-          <Col sm="3" style={{}}>
+        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
+          {ideas.map((idea, i) => {
+            return <IdeaCard idea={idea} key={i} />
+          })}
+          {/* <Col sm="3" style={{}}>
             <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -43,10 +87,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="/idea">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** SECOND CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -62,10 +106,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="/update">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** THIRD CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -81,12 +125,12 @@ export default class NewsFeed extends Component {
                 <Card.Link href="/idea">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* *** FOURTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -102,10 +146,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="/update">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** FIFTH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -121,10 +165,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** SIXTH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -141,12 +185,12 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* *** SEVENTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -162,10 +206,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** EIGHTH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -182,10 +226,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** NINTH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -201,12 +245,12 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* *** TENTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -222,10 +266,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** ELEVENTH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -241,10 +285,10 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
 
           {/* *** 12TH CARD *** */}
-          <Col sm="3">
+          {/* <Col sm="3">
             <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
               <Card.Img className="text-light"
                 width="100%"
@@ -260,7 +304,7 @@ export default class NewsFeed extends Component {
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       </>  
     )
