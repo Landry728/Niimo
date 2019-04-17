@@ -56,7 +56,6 @@ export default class NewIdea extends Component {
     numImgRef.once('value', snap => {
       let numImg = snap.val() + 1;
       numImgRef.set(numImg);
-      // this.setState({numImgs: numImg});
       let newImageRef = imageRef.child(numImg.toString())
       newImageRef.put(selectedImage).then(snapshot => {
         console.log('Uploaded a blob or file!');

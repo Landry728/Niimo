@@ -8,6 +8,7 @@ import "firebase/database"
 import "firebase/storage"
 
 const updateRef = firebase.database().ref('updates');
+const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
 const imageRef = firebase.storage().ref('images');
 
 export default class NewUpdate extends Component {
@@ -22,7 +23,7 @@ export default class NewUpdate extends Component {
   }
 
   fileSelectedHandler = (e) => {
-    this.setState({selectedImage: e.target.files[0]});
+    this.setState({ selectedImage: e.target.files[0] });
   }
 
   handleChange = (e) => {
@@ -42,16 +43,21 @@ export default class NewUpdate extends Component {
   submitUpdate = (e) => {
     e.preventDefault();
     let { title, idea, description, selectedImage } = this.state;
-    let newImageRef = imageRef.child(selectedImage.name)
-    newImageRef.put(selectedImage).then(snapshot => {
-      console.log('Uploaded a blob or file!');
+    numImgRef.once('value', snap => {
+      let numImg = snap.val() + 1;
+      numImgRef.set(numImg);
+      let newImageRef = imageRef.child(numImg.toString())
+      newImageRef.put(selectedImage).then(snapshot => {
+        console.log('Uploaded a blob or file!');
+      });
+      let newUpdateRef = updateRef.push();
+      newUpdateRef.set({
+        title: title,
+        idea: idea,
+        description: description,
+        picId: numImg
+      })
     });
-    let newUpdateRef = updateRef.push();
-    newUpdateRef.set({
-      title: title,
-      idea: idea,
-      description: description
-    })
   }
 
   render() {
