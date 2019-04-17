@@ -136,7 +136,7 @@ export default class NewsFeed extends Component {
                 <Card.Text>
                   This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
                   contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
-                  There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables...
+                  There's not many grocery stores downtown with fresh fruits and vegetables...
                 </Card.Text>
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>
@@ -177,7 +177,7 @@ export default class NewsFeed extends Component {
                 <Card.Text>
                   This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
                   contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
-                  There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables.
+                  There's not many grocery stores downtown with fresh fruits and vegetables...
                 </Card.Text>
                 <Card.Link href="#">Learn More</Card.Link>
               </Card.Body>

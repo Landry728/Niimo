@@ -41,15 +41,17 @@ export class MapContainer extends Component {
       'marginTop': '2vh'
     }
     return (
+      
       <div>
         <h4 style={{ marginTop: '4vh' }}>
           <Badge style={{ marginRight: '2%' }} pill variant="primary">
-            Needs an idea
+            Needs An Idea
           </Badge>
           <Badge pill variant="success">
-            Has an Idea
+            Has An Idea
           </Badge>
         </h4>
+
         <Map
           google={this.props.google}
           onClick={this.onMapClicked}
