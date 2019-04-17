@@ -63,7 +63,7 @@ export default class NewIdea extends Component {
       let newIdeaRef = ideaRef.push();
       newIdeaRef.set({
         title: title,
-        idea: idea,
+        description: idea,
         address: address,
         city: city,
         state: state,
