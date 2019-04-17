@@ -52,6 +52,7 @@ export default class NewUpdate extends Component {
       });
       let newUpdateRef = updateRef.push();
       newUpdateRef.set({
+        id: numImg,
         title: title,
         idea: idea,
         description: description,

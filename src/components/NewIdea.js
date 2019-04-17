@@ -62,6 +62,7 @@ export default class NewIdea extends Component {
       });
       let newIdeaRef = ideaRef.push();
       newIdeaRef.set({
+        id: numImg,
         title: title,
         description: idea,
         address: address,

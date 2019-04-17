@@ -17,13 +17,12 @@ export default class FeedCard extends Component {
     const { picId } = this.state.info;
     const imageRef = firebase.storage().ref().child(`images/${picId}`);
     imageRef.getDownloadURL().then(url => {
-      console.log(url)
       this.setState({picURL: url});
     })
   }
 
   render() {
-    const { title, description, picId } = this.state.info;
+    const { title, description, id } = this.state.info;
     return (
       <Col sm="3">
         <Card bg="dark" text="white" style={{ border: '3px white solid', margin: 10 }}>
@@ -35,7 +34,7 @@ export default class FeedCard extends Component {
           <Card.Body className="text-light">
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <Card.Link href="/idea">{picId}</Card.Link>
+            <Card.Link href={`/idea/${id}`}>Read More</Card.Link>
           </Card.Body>
         </Card>
       </Col>
