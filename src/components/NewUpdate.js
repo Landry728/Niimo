@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-import firebase from '../config/firebase'
+import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
 
