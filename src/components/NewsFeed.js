@@ -38,12 +38,12 @@ export default class NewsFeed extends Component {
       this.setState({updates});
       // console.log(this.state.updates);
     });
-    imageRef.getDownloadURL().then(url => {
-      console.log(url);
-      // images.push(url);
-      // this.setState({images});
-      // console.log(this.state.images);
-    })
+    // imageRef.getDownloadURL().then(url => {
+    //   console.log(url);
+    //   // images.push(url);
+    //   // this.setState({images});
+    //   // console.log(this.state.images);
+    // })
   }
 
   render() {

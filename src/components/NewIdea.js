@@ -9,6 +9,7 @@ import "firebase/database"
 import "firebase/storage"
 
 const ideaRef = firebase.database().ref('ideas');
+const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
 const imageRef = firebase.storage().ref('images');
 
 export default class NewIdea extends Component {
@@ -21,7 +22,8 @@ export default class NewIdea extends Component {
       city: '',
       state: '',
       zip: '',
-      selectedImage: ''
+      selectedImage: '',
+      numImgs: 0
     }
   }
 
@@ -51,25 +53,33 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImage } = this.state;
-    let newImageRef = imageRef.child(selectedImage.name)
-    newImageRef.put(selectedImage).then(snapshot => {
-      console.log('Uploaded a blob or file!');
+    let { title, idea, address, city, state, zip, selectedImage, numImgs } = this.state;
+    numImgRef.on('value', snap => {
+      let numImg = snap.val() + 1;
+      console.log(numImg)
+      this.setState({numImgs: numImg});
+      // console.log(`num of imgs: ${newNum}`)
+      // let newImageRef = imageRef.child(newNum.toString())
+      // newImageRef.put(selectedImage).then(snapshot => {
+      //   console.log('Uploaded a blob or file!');
+      // });
+      // let newIdeaRef = ideaRef.push();
+      // newIdeaRef.set({
+      //   title: title,
+      //   idea: idea,
+      //   address: address,
+      //   city: city,
+      //   state: state,
+      //   zip: zip,
+      //   picId: newNum
+      // })
     });
-    let newIdeaRef = ideaRef.push();
-    newIdeaRef.set({
-      title: title,
-      idea: idea,
-      address: address,
-      city: city,
-      state: state,
-      zip: zip
-    })
   }
 
   render() {
     return (
       <Form>
+        <h1>{this.state.numImgs}</h1>
         <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
