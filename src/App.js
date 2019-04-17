@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './components/Home'
 import Maps from './components/Map';
 import NavBar from './components/NavBar';
+import msger from './components/Messages'
 import './App.css';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NewsFeed from './components/NewsFeed.js';
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/newidea" component={NewIdea} />
             <Route path="/update" component={Updates} />
             <Route path="/newupdate" component={NewUpdate} />
+            <Route path ="/messanger" component={msger} />
           </Switch>
         </Router>
       </div>
