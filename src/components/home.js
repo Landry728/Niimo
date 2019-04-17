@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import Logo from '../images/Logo.jpg'
+import '../App.css'
 
 export default class Home extends Component {
   render() {
@@ -20,8 +21,8 @@ export default class Home extends Component {
         </div>
         <Row>
           <Col style={{ display: 'flex', justifyContent: 'center' }}>
-            <Link to="/feed" style={{ marginRight: 20 }}><Button variant="secondary" size="lg">Find an Idea</Button></Link>
-            <Link to="/map" ><Button variant="secondary" size="lg">Find a Location</Button></Link>
+            <Link to="/feed" style={{  marginRight: 20 }}><Button style={{ backgroundColor: '#4B3572' }} variant="secondary" size="lg">Find an Idea</Button></Link>
+            <Link to="/map" ><Button style={{ backgroundColor: '#4B3572' }}  variant="secondary" size="lg">Find a Location</Button></Link>
           </Col>
         </Row>
       </>

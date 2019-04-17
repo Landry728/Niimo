@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import ApiKey from '../config/GoogleApiKey';
 import GreenPin from '../images/greenPin.png'
 import BluePin from '../images/bluePin.png'
-import Badge from 'react-bootstrap/Badge'
+import Card from 'react-bootstrap/Card'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -41,16 +41,18 @@ export class MapContainer extends Component {
       'marginTop': '2vh'
     }
     return (
-      
       <div>
-        <h4 style={{ marginTop: '4vh' }}>
-          <Badge style={{ marginRight: '2%' }} pill variant="primary">
-            Needs An Idea
-          </Badge>
-          <Badge pill variant="success">
-            Has An Idea
-          </Badge>
-        </h4>
+
+        {/* PIN LEGEND  */}
+        
+            <Card text="white" style={{ width: '14rem', backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
+              <Card.Body className="text-light">
+                <Card.Title>Legend</Card.Title>
+              </Card.Body>
+            </Card>
+          
+
+
 
         <Map
           google={this.props.google}

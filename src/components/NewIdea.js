@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
+import '../App.css'
 
 const ideaRef = firebase.database().ref('ideas');
 const imageRef = firebase.storage().ref('images');
@@ -70,7 +71,7 @@ export default class NewIdea extends Component {
   render() {
     return (
       <Form>
-        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
+        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" name="title" placeholder="Enter Title" onChange={this.handleChange} />
@@ -104,11 +105,11 @@ export default class NewIdea extends Component {
             {/* Image Upload Code */}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <p>Got any photo(s)?</p>
-              <Button style={{ marginRight: '2vw' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Button style={{ marginTop: '2vh', padding: '1vh' }} variant="primary" type="submit" onClick={this.submitIdea}>
-                Submit
+              <Button style={{ backgroundColor: '#4B3572', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
+                Submit 
               </Button>
             </Col>
           </Row>

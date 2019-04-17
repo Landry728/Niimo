@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
+import '../App.css'
 
 export default class ControlledCarousel extends React.Component {
   constructor(props, context) {

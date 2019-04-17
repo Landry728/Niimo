@@ -4,20 +4,21 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import '../App.css'
 
 export default class NewsFeed extends Component {
   render() {
     return (
       <>
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
-          <DropdownButton style={{ marginRight: 30 }} size="lg" variant="secondary" id="dropdown-basic-button" title="Filter"  >
+          <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" variant="primary" id="dropdown-basic-button" title="Filter"  >
             <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-2">Downtown</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-3">Uptown</Dropdown.Item>
           </DropdownButton>
-          <DropdownButton style={{ marginRight: 60 }} size="lg" variant="secondary" id="dropdown-basic-button" title="Sort">
+          <DropdownButton style={{ marginRight: 60 }} size="lg" variant="primary" id="dropdown-basic-button" title="Sort">
             <Dropdown.Item href="#/action-1">Most Upvotes</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
@@ -26,8 +27,8 @@ export default class NewsFeed extends Component {
 
         {/* *** FIRST CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
-          <Col sm="3" style={{}}>
-            <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
+          <Col sm="3">
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://deanoinamerica.files.wordpress.com/2014/01/img_2886-1024x768.jpg?w=1000&h=749"
@@ -47,7 +48,7 @@ export default class NewsFeed extends Component {
 
           {/* *** SECOND CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://www.bankforeclosuressale.com/images/categories/a-commercial-building.jpg"
@@ -66,7 +67,7 @@ export default class NewsFeed extends Component {
 
           {/* *** THIRD CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="http://www.bergerlaw.net/photos/abandoned-strip-mall.jpg"
@@ -87,7 +88,7 @@ export default class NewsFeed extends Component {
         {/* *** FOURTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://cdn.vox-cdn.com/thumbor/IUFtEEBDz077fHMNUAtFO7PHrXw=/0x0:1024x502/1200x800/filters:focal(431x170:593x332)/cdn.vox-cdn.com/uploads/chorus_image/image/59928279/40756v.0.jpg"
@@ -106,7 +107,7 @@ export default class NewsFeed extends Component {
 
           {/* *** FIFTH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://tangodigitalsystems.org/wp-content/uploads/2018/02/The-Best-Video-Surveillance-for-Abandoned-Commercial-Properties.jpg"
@@ -125,7 +126,7 @@ export default class NewsFeed extends Component {
 
           {/* *** SIXTH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://static1.squarespace.com/static/52d2ebb3e4b06f22d60562c5/52e403a8e4b08ed408a69db5/5761321cd210b8e1f48e1c87/1465987615273/Hargrove_Adam-Jacobs-Landscape-Abandoned-Places.jpg"
@@ -147,7 +148,7 @@ export default class NewsFeed extends Component {
         {/* *** SEVENTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://www.gannett-cdn.com/-mm-/845383ccf561e60bb5823bb6ef9d046248cd5566/c=2-0-834-624/local/-/media/GreenBay/2015/01/13/B9315852496Z.1_20150113194653_000_GEF9LSE3V.1-0.jpg?width=534&height=401&fit=crop"
@@ -166,7 +167,7 @@ export default class NewsFeed extends Component {
 
           {/* *** EIGHTH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://d3el53au0d7w62.cloudfront.net/wp-content/uploads/2016/12/06/c01_jd_07dec_vacant.jpg"
@@ -186,7 +187,7 @@ export default class NewsFeed extends Component {
 
           {/* *** NINTH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://jkinmartin.files.wordpress.com/2018/11/img_2876-e1541714239530.jpg?w=519"
@@ -207,7 +208,7 @@ export default class NewsFeed extends Component {
         {/* *** TENTH CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://www.alexcityoutlook.com/wp-content/uploads/2018/06/web-DEMOLITION-GRANT-622x350.jpg"
@@ -226,7 +227,7 @@ export default class NewsFeed extends Component {
 
           {/* *** ELEVENTH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://finance-commerce.com/files/2018/08/Micro-Apartments-590Park5.jpg"
@@ -245,7 +246,7 @@ export default class NewsFeed extends Component {
 
           {/* *** 12TH CARD *** */}
           <Col sm="3">
-            <Card bg="dark" text="white" style={{ border: '3px white solid' }}>
+            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="http://sisinsure.com/wp-content/uploads/2016/08/vacant_build.jpg"
