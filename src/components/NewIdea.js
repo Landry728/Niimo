@@ -22,8 +22,7 @@ export default class NewIdea extends Component {
       city: '',
       state: '',
       zip: '',
-      selectedImage: '',
-      numImgs: 0
+      selectedImage: ''
     }
   }
 
@@ -53,33 +52,31 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImage, numImgs } = this.state;
-    numImgRef.on('value', snap => {
+    let { title, idea, address, city, state, zip, selectedImage } = this.state;
+    numImgRef.once('value', snap => {
       let numImg = snap.val() + 1;
-      console.log(numImg)
-      this.setState({numImgs: numImg});
-      // console.log(`num of imgs: ${newNum}`)
-      // let newImageRef = imageRef.child(newNum.toString())
-      // newImageRef.put(selectedImage).then(snapshot => {
-      //   console.log('Uploaded a blob or file!');
-      // });
-      // let newIdeaRef = ideaRef.push();
-      // newIdeaRef.set({
-      //   title: title,
-      //   idea: idea,
-      //   address: address,
-      //   city: city,
-      //   state: state,
-      //   zip: zip,
-      //   picId: newNum
-      // })
+      numImgRef.set(numImg);
+      // this.setState({numImgs: numImg});
+      let newImageRef = imageRef.child(numImg.toString())
+      newImageRef.put(selectedImage).then(snapshot => {
+        console.log('Uploaded a blob or file!');
+      });
+      let newIdeaRef = ideaRef.push();
+      newIdeaRef.set({
+        title: title,
+        idea: idea,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        picId: numImg
+      })
     });
   }
 
   render() {
     return (
       <Form>
-        <h1>{this.state.numImgs}</h1>
         <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
