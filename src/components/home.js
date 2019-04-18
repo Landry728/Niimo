@@ -8,9 +8,11 @@ import '../App.css'
 
 export default class Home extends Component {
   constructor(props){
-    super(props)
+    super(props);
   }
   render() {
+    const { cardBackgroundColor, background } = this.props.stylingColors;
+    console.log(this.props.stylingColors);
     return (
       <>
         <div style={{ width: '100%', height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
