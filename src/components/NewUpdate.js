@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
+import '../App.css'
 
 const updateRef = firebase.database().ref('updates');
 const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
@@ -65,7 +66,7 @@ export default class NewUpdate extends Component {
   render() {
     return (
       <Form>
-        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
+        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Which idea of yours are we talking about?</Form.Label>
@@ -90,10 +91,10 @@ export default class NewUpdate extends Component {
 
           {/* Image Upload Code */}
           <p>Got any photo(s)?</p>
-          <Button as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+          <Button style = {{ backgroundColor: '#B3C6F5' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
 
           {/* Submit your Update */}
-          <Button style={{ marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
+          <Button style={{ backgroundColor: '#4B3572', marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
             Submit
             </Button>
         </Container>

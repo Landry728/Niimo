@@ -39,15 +39,15 @@ export default class NewsFeed extends Component {
     const {ideas, updates} = this.state;
     return (
       <>
-        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 20 }}>
-          <DropdownButton style={{ marginRight: 30 }} size="lg" variant="secondary" id="dropdown-basic-button" title="Filter"  >
+        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
+          <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" variant="primary" id="dropdown-basic-button" title="Filter"  >
             <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-2">Downtown</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-3">Uptown</Dropdown.Item>
           </DropdownButton>
-          <DropdownButton style={{ marginRight: 60 }} size="lg" variant="secondary" id="dropdown-basic-button" title="Sort">
+          <DropdownButton style={{ marginRight: 60 }} size="lg" variant="primary" id="dropdown-basic-button" title="Sort">
             <Dropdown.Item href="#/action-1">Most Upvotes</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>

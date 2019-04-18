@@ -4,9 +4,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import Logo from '../images/Logo.jpg'
+import '../App.css'
 
 export default class Home extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
+    const { cardBackgroundColor, background } = this.props.stylingColors;
+    console.log(this.props.stylingColors);
     return (
       <>
         <div style={{ width: '100%', height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
@@ -20,8 +26,8 @@ export default class Home extends Component {
         </div>
         <Row>
           <Col style={{ display: 'flex', justifyContent: 'center' }}>
-            <Link to="/feed" style={{ marginRight: 20 }}><Button variant="secondary" size="lg">Find an Idea</Button></Link>
-            <Link to="/map" ><Button variant="secondary" size="lg">Find a Location</Button></Link>
+            <Link to="/feed" style={{  marginRight: 20 }}><Button style={{ backgroundColor: '#4B3572' }} variant="secondary" size="lg">Find an Idea</Button></Link>
+            <Link to="/map" ><Button style={{ backgroundColor: '#4B3572' }}  variant="secondary" size="lg">Find a Location</Button></Link>
           </Col>
         </Row>
       </>
