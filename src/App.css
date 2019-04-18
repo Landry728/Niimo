@@ -4,17 +4,17 @@
   background: radial-gradient( #5680E9, #C1C8E4 );
   color: #ffffff;
   padding-bottom: 2vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
 }
 
-.MapContainer {
-
-
+.Cardd {
+  background-color: #5680E9;
+  border: 3px solid #C1C8E4;
 }
 
-
-.Navbar {
-  background: #026670;
-
+.Navv {
+  background-color: #5680E9;
 }
 
 .Butt {

@@ -28,7 +28,7 @@ export default class NewsFeed extends Component {
         {/* *** FIRST CARD *** */}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 10 }}>
           <Col sm="3">
-            <Card text="white" style={{ backgroundColor: '#5680E9', border: '3px solid', borderColor: '#C1C8E4', borderColor: '#C1C8E4' }}>
+            <Card text="white" style={{ backgroundColor: `${this.props.cardBackgroundColor}`, border: '3px solid', borderColor: '#C1C8E4', borderColor: '#C1C8E4' }}>
               <Card.Img className="text-light"
                 width="100%"
                 src="https://deanoinamerica.files.wordpress.com/2014/01/img_2886-1024x768.jpg?w=1000&h=749"

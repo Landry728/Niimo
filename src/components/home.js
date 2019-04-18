@@ -7,6 +7,9 @@ import Logo from '../images/Logo.jpg'
 import '../App.css'
 
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
     return (
       <>
