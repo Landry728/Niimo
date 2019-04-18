@@ -22,7 +22,9 @@ export default class FeedCard extends Component {
   }
 
   render() {
-    const { title, description, id } = this.state.info;
+    const { title, description, id, isIdea } = this.state.info;
+    let href;
+    isIdea ? href = `/idea/${id}` : href = `/update/${id}`;
     return (
       <Col sm="3">
         <Card bg="dark" text="white" style={{ border: '3px white solid', margin: 10 }}>
@@ -34,7 +36,7 @@ export default class FeedCard extends Component {
           <Card.Body className="text-light">
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <Card.Link href={`/idea/${id}`}>Read More</Card.Link>
+            <Card.Link href={href}>Read More</Card.Link>
           </Card.Body>
         </Card>
       </Col>

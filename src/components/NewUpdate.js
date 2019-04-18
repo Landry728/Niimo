@@ -56,7 +56,8 @@ export default class NewUpdate extends Component {
         title: title,
         idea: idea,
         description: description,
-        picId: numImg
+        picId: numImg,
+        isIdea: false
       })
     });
   }

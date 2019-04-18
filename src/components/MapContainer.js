@@ -16,6 +16,7 @@ export class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
+    console.log(props, marker)
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -40,6 +41,7 @@ export class MapContainer extends Component {
       'marginRight': 'auto',
       'marginTop': '2vh'
     }
+    console.log(this.state.selectedPlace.name);
     return (
       <div>
         <h4 style={{ marginTop: '4vh' }}>

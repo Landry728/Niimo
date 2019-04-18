@@ -5,9 +5,9 @@ import NavBar from './components/NavBar';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NewsFeed from './components/NewsFeed.js';
-import Ideas from './components/IdeaPage.js';
+import Updates from './components/Updates.js';
 import NewIdea from './components/NewIdea'
-import Updates from './components/Updates';
+import Ideas from './components/Ideas';
 import NewUpdate from './components/NewUpdate';
 
 class App extends Component {
@@ -20,9 +20,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/map" component={Maps} />
             <Route path="/feed" component={NewsFeed} />
-            <Route path="/idea" component={Ideas} />
+            <Route exact path="/idea/:id" component={Ideas} />
             <Route path="/newidea" component={NewIdea} />
-            <Route path="/update" component={Updates} />
+            <Route exact path="/update/:id" component={Updates} />
             <Route path="/newupdate" component={NewUpdate} />
           </Switch>
         </Router>

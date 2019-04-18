@@ -69,7 +69,8 @@ export default class NewIdea extends Component {
         city: city,
         state: state,
         zip: zip,
-        picId: numImg
+        picId: numImg,
+        isIdea: true
       })
     });
   }
