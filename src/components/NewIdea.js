@@ -22,12 +22,17 @@ export default class NewIdea extends Component {
       city: '',
       state: '',
       zip: '',
-      selectedImage: ''
+      selectedImages: [],
+      imgNum: ''
     }
   }
 
   fileSelectedHandler = (e) => {
-    this.setState({selectedImage: e.target.files[0]});
+    let selectedImages = [];
+    for(let i = 0; i < e.target.files.length; i++) {
+      selectedImages.push(e.target.files[i]);
+    }
+    this.setState({selectedImages});
   }
 
   handleChange = (e) => {
@@ -52,27 +57,27 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImage } = this.state;
-    numImgRef.once('value', snap => {
-      let numImg = snap.val() + 1;
-      numImgRef.set(numImg);
-      let newImageRef = imageRef.child(numImg.toString())
-      newImageRef.put(selectedImage).then(snapshot => {
-        console.log('Uploaded a blob or file!');
-      });
-      let newIdeaRef = ideaRef.push();
-      newIdeaRef.set({
-        id: numImg,
-        title: title,
-        description: idea,
-        address: address,
-        city: city,
-        state: state,
-        zip: zip,
-        picId: numImg,
-        isIdea: true
-      })
-    });
+    let { title, idea, address, city, state, zip, selectedImages } = this.state;
+  //   numImgRef.once('value', snap => {
+  //     let numImg = snap.val() + 1;
+  //     numImgRef.set(numImg);
+  //     let newImageRef = imageRef.child(numImg.toString())
+  //     newImageRef.put(selectedImage).then(snapshot => {
+  //       console.log('Uploaded a blob or file!');
+  //     });
+  //     let newIdeaRef = ideaRef.push();
+  //     newIdeaRef.set({
+  //       id: numImg,
+  //       title: title,
+  //       description: idea,
+  //       address: address,
+  //       city: city,
+  //       state: state,
+  //       zip: zip,
+  //       picId: numImg,
+  //       isIdea: true
+  //     })
+  //   });
   }
 
   render() {
@@ -112,7 +117,7 @@ export default class NewIdea extends Component {
             {/* Image Upload Code */}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <p>Got any photo(s)?</p>
-              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" multiple variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Button style={{ backgroundColor: '#4B3572', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>

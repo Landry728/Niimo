@@ -11,6 +11,7 @@ import NewIdea from './components/NewIdea'
 import Ideas from './components/Ideas';
 import NewUpdate from './components/NewUpdate';
 import StylingColors from './Styling'
+import FormPage from './components/FormPage';
 
 class App extends Component {
   render() {
@@ -22,11 +23,12 @@ class App extends Component {
             <Route exact path="/" render={(props) => <Home {...props} stylingColors={StylingColors} />} />
             <Route path="/map" render={(props) => <Maps {...props} stylingColors={StylingColors} />} />
             <Route path="/feed" render={(props) => <NewsFeed {...props} stylingColors={StylingColors} />} />
-            <Route path="/idea" render={(props) => <Ideas {...props} stylingColors={StylingColors} />} />
+            <Route path="/idea/:id" render={(props) => <Ideas {...props} stylingColors={StylingColors} />} />
             <Route path="/newidea" render={(props) => <NewIdea {...props} stylingColors={StylingColors} />} />
-            <Route path="/update" render={(props) => <Updates {...props} stylingColors={StylingColors} />} />
+            <Route path="/update/:id" render={(props) => <Updates {...props} stylingColors={StylingColors} />} />
             <Route path="/newupdate" render={(props) => <NewUpdate {...props} stylingColors={StylingColors} />} />
-            <Route path ="/messanger" render={(props) => <Msger {...props} stylingColors={StylingColors} />} />
+            <Route path="/messanger" render={(props) => <Msger {...props} stylingColors={StylingColors} />} />
+            <Route path="/form" component={FormPage} />
           </Switch>
         </Router>
       </div>

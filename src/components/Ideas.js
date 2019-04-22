@@ -1,6 +1,14 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
+import firebase from '../config/Firebase'
+import "firebase/database"
+import "firebase/storage"
+
+const db = firebase.database();
+const storage = firebase.storage();
+const ideaRef = db.ref("ideas");
+const imageRef = storage.ref('images');
 
 export default class Ideas extends React.Component {
   constructor(props, context) {
@@ -8,8 +16,25 @@ export default class Ideas extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.state = {
       index: 0,
-      direction: null
+      direction: null,
+      title: '',
+      idea: '',
+      picURL: ''
     };
+  }
+
+  componentDidMount() {
+    ideaRef.orderByChild("id").on("child_added", snap => {
+      if(snap.val().id == this.props.match.params.id) {
+        imageRef.child(`${snap.val().id}`).getDownloadURL().then(url => {
+          this.setState({
+            title: snap.val().title,
+            idea: snap.val().description,
+            picURL: url
+          })
+        })
+      }
+    })
   }
   
   handleSelect(selectedIndex, e) {
@@ -20,11 +45,11 @@ export default class Ideas extends React.Component {
   }
 
   render() {
-    const { index, direction } = this.state;
+    const { index, direction, title, idea, picURL } = this.state;
     return (
       <div style={{alignItems: "center"}}>
         <h1 style={{color: "white"}}>
-          Title
+          {title}
         </h1>
         <br />
         <Carousel
@@ -36,7 +61,7 @@ export default class Ideas extends React.Component {
             <img
               width={900}
               height={500}
-              src={require("../images/Uptown.jpg")}
+              src={picURL}
               alt="First slide"
             />
             <Carousel.Caption>
@@ -68,10 +93,10 @@ export default class Ideas extends React.Component {
         </Carousel>
         <br />
         <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
-          <Card.Header>Header</Card.Header>
+          <Card.Header>Description</Card.Header>
           <Card.Body>
             <Card.Text>
-              Some quick example text to build on the card title
+              {idea}
             </Card.Text>
           </Card.Body>
         </Card>

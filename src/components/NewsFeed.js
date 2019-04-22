@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import Row from 'react-bootstrap/Row'
 import FeedCard from './FeedCard'
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 import firebase from '../config/Firebase'
 import "firebase/database"
 
