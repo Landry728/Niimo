@@ -53,12 +53,13 @@ export default class NewsFeed extends Component {
             <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
           </DropdownButton>
         </Row>
-
+      
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {ideas.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
+        <hr />
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {updates.map((info, i) => {
             return <FeedCard info={info} key={i} />
