@@ -54,16 +54,22 @@ export default class NewsFeed extends Component {
           </DropdownButton>
         </Row>
 
+        <div class="container" border-bottom-grey>
+          Ideas
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {ideas.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
+        </div>
+        <div class="container" border-bottom-grey>
+          Updates
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {updates.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
+        </div>
       </>  
     )
   }
