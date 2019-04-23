@@ -18,7 +18,7 @@ export default class FeedCard extends Component {
     const { picId } = this.state.info;
     const imageRef = firebase.storage().ref().child(`images/${picId}`);
     imageRef.getDownloadURL().then(url => {
-      this.setState({picURL: url});
+      this.setState({ picURL: url });
     })
   }
 
@@ -28,18 +28,18 @@ export default class FeedCard extends Component {
     isIdea ? href = `/idea/${id}` : href = `/update/${id}`;
     return (
       <Col sm="4">
-        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#B4EADB', borderWidth: '5px', borderColor: '#7696E8', borderStyle: 'solid', borderRadius: 15, margin: 10 }}>
-          <Card.Img className="text-light"
-            width="100%"
-            src={this.state.picURL}
-            alt="picture"
-          />
-          <Card.Body className="text-dark">
-            <Card.Title>{title}</Card.Title>
-            <Card.Text className="text-truncate">{description}</Card.Text>
-            <Card.Link style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
-          </Card.Body>
-        </Card>
+          <Card bg="" className="feedCard" style={{ padding: '2%', borderColor: 'transparent'}}>
+            <Card.Img className="text-light"
+              width="100%"
+              src={this.state.picURL}
+              alt="picture"
+            />
+            <Card.Body className="text-dark">
+              <Card.Title>{title}</Card.Title>
+              <Card.Text className="text-truncate">{description}</Card.Text>
+              <Card.Link style={{ onHover: 'bold', color: '#4B3572' }} href={href}>Read More</Card.Link>
+            </Card.Body>
+          </Card>
       </Col>
     )
   }

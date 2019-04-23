@@ -1,20 +1,33 @@
 .App {
   text-align: center;
   min-height: 120vh;
-  background: radial-gradient( #5680E9, #B4EADB );
+  background: radial-gradient(  #5680E9, #B4EADB, #A892D1 );
   color: #ffffff;
   padding-bottom: 2vw;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
 }
-/* C1C8E4 */
+.feedCard{
+  background-image: linear-gradient(to bottom right,  #5680E9, #D6C9C9 );
+  margin: 10px;
+
+}
+
+/*linear-gradient(to bottom right, #B4EADB, #A892D1, #70D8BB, #A892D1)*/
 .Cardd {
   background-color: #5680E9;
   border: 3px solid #C1C8E4;
 }
 
+.card {
+  
+  border-width: 3px !important;
+  border-style: solid !important;
+  border-color: #8C2727 !important;
+}
+
 .Navv {
-  background-color: #5680E9;
+  background-color: rgba(86,128,233, .4);
 }
 
 .Butt {
