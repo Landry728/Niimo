@@ -35,16 +35,16 @@ export default class FeedCard extends Component {
     isIdea ? href = `/idea/${id}` : href = `/update/${id}`;
     return (
       <Col sm="4">
-        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 15, border: '3px white solid', margin: 10 }}>
+        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#B4EADB', borderWidth: '5px', borderColor: '#7696E8', borderStyle: 'solid', borderRadius: 15, margin: 10 }}>
           <Card.Img className="text-light"
             width="100%"
             src={this.state.picURL}
             alt="picture"
           />
-          <Card.Body className="text-light">
+          <Card.Body className="text-dark">
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <Card.Link style={{ onHover: 'bold', color: '#4B3572' }} href={href}>Read More</Card.Link>
+            <Card.Text className="text-truncate">{description}</Card.Text>
+            <Card.Link style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
           </Card.Body>
         </Card>
       </Col>
