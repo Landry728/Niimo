@@ -21,13 +21,13 @@ export default class NewsFeed extends Component {
   componentDidMount() {
     let ideas = [];
     let updates = [];
-    ideaRef.on('value', snap => {
+    ideaRef.once('value', snap => {
       snap.forEach(child => {
         ideas.push(child.val());
       })
       this.setState({ideas});
     });
-    updateRef.on('value', snap => {
+    updateRef.once('value', snap => {
       snap.forEach(child => {
         updates.push(child.val());
       })
@@ -53,18 +53,24 @@ export default class NewsFeed extends Component {
             <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
           </DropdownButton>
         </Row>
-      
+
+        <div className="container">
+          Ideas
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {ideas.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
         <hr />
+        </div>
+        <div className="container">
+          Updates
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {updates.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
+        </div>
       </>  
     )
   }

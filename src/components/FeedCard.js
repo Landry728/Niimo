@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import firebase from '../config/Firebase'
 import "firebase/storage"
+import '../App.css'
+
 
 export default class FeedCard extends Component {
   constructor(props) {
@@ -12,7 +14,6 @@ export default class FeedCard extends Component {
       picURL: ''
     }
   }
-
   componentWillMount() {
     const { picId } = this.state.info;
     const imageRef = firebase.storage().ref().child(`images/${picId}`);
@@ -27,7 +28,7 @@ export default class FeedCard extends Component {
     isIdea ? href = `/idea/${id}` : href = `/update/${id}`;
     return (
       <Col sm="3">
-        <Card bg="dark" text="white" style={{ border: '3px white solid', margin: 10 }}>
+        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 15, border: '3px white solid', margin: 10 }}>
           <Card.Img className="text-light"
             width="100%"
             src={this.state.picURL}
@@ -36,7 +37,7 @@ export default class FeedCard extends Component {
           <Card.Body className="text-light">
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <Card.Link href={href}>Read More</Card.Link>
+            <Card.Link style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
           </Card.Body>
         </Card>
       </Col>
