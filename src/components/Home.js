@@ -5,15 +5,20 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Logo from "../images/Logo.jpg";
 import "../App.css";
+import BhamNow from '../images/BhamNow.jpg'
+import Bham1907 from '../images/Bham1907.jpg'
+import ReactCompareImage from 'react-compare-image';
+
+
 
 export default class Home extends Component {
   // constructor(props){
   //   super(props);
   // }
-  state = {
-    img:
-      "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-  };
+  // state = {
+  //   img:
+  //     "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
+  // };
   render() {
     // const { cardBackgroundColor, background } = this.props.stylingColors;
     // console.log(this.props.stylingColors);
@@ -28,7 +33,12 @@ export default class Home extends Component {
             justifyContent: "center"
           }}
         >
-          <img
+        <ReactCompareImage hover = 'true'
+  leftImage = {Bham1907}
+  rightImage = {BhamNow}
+        />
+
+          {/* <img
             style={{ marginTop: 350 }}
             src={this.state.img}
             onMouseEnter={() => {
@@ -42,8 +52,8 @@ export default class Home extends Component {
                 img:
                   "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
               });
-            }}
-          />
+            }} */}
+          
           {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}
         </div>
         <br />
