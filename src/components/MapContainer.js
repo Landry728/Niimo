@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import ApiKey from '../config/GoogleApiKey';
+import React, { Component } from 'react'
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
+import ApiKey from '../config/GoogleApiKey'
 import GreenPin from '../images/greenPin.png'
 import BluePin from '../images/bluePin.png'
-import Badge from 'react-bootstrap/Badge'
+import Card from 'react-bootstrap/Card'
+import blupin from '../images/blue32.png'
+import grnpin from '../images/green32.png'
+import Col from 'react-bootstrap/Col'
+import firebase from '../config/Firebase'
+import "firebase/database"
+
+const locationsRef = firebase.database().ref('locations');
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -12,10 +20,22 @@ export class MapContainer extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      locations: []
     }
   }
 
+  componentDidMount() {
+    let locations = [];
+    locationsRef.on('value', snap => {
+      snap.forEach(child => {
+        locations.push(child.val());
+      });
+      this.setState({ locations });
+    })
+  }
+
   onMarkerClick = (props, marker, e) => {
+    console.log(props, marker)
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -34,22 +54,31 @@ export class MapContainer extends Component {
 
   render() {
     const style = {
-      width: '75vw',
-      height: '95vh',
+      width: '65vw',
+      height: '85vh',
       'marginLeft': 'auto',
       'marginRight': 'auto',
-      'marginTop': '2vh'
+      'marginTop': '2vh',
     }
     return (
       <div>
-        <h4 style={{ marginTop: '4vh' }}>
-          <Badge style={{ marginRight: '2%' }} pill variant="primary">
-            Needs an idea
-          </Badge>
-          <Badge pill variant="success">
-            Has an Idea
-          </Badge>
-        </h4>
+
+        {/* PIN LEGEND  */}
+        <Col>
+          <Card text="white" style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: '#4B3572', border: '3px solid', borderColor: '#C1C8E4', marginTop: 20 }}>
+            <Card.Body className="text-light">
+              <Card.Title textDecoration='underlined'>Legend</Card.Title>
+              <img src={blupin} alt="pins" />
+              = Need Ideas
+                <img src={grnpin} alt="pin" />
+              = Have Ideas
+              </Card.Body>
+          </Card>
+        </Col>
+
+
+
+
         <Map
           google={this.props.google}
           onClick={this.onMapClicked}

@@ -1,81 +1,43 @@
-import React from "react";
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
-export default class ControlledCarousel extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.state = {
-      index: 0,
-      direction: null
-    };
-  }
-  
-  handleSelect(selectedIndex, e) {
-    this.setState({
-      index: selectedIndex,
-      direction: e.direction
-    });
-  }
-
+export default class Updates extends Component {
   render() {
-    const { index, direction } = this.state;
     return (
-      <div style={{alignItems: "center"}}>
-        <h1 style={{color: "white"}}>
-          Title
-        </h1>
-        <br />
-        <Carousel
-          activeIndex={index}
-          direction={direction}
-          onSelect={this.handleSelect}
-        >
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={require("../images/Uptown.jpg")}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 1 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={require("../images/abandon6.jpg")}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 2 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={require("../images/abandon4.jpg")}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 3 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-        <br />
-        <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Text>
-              Some quick example text to build on the card title
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </div>
+        <Row style={{ marginTop: '0.5%', width: '100%', height: 300, display: 'flex', justifyContent: 'center', }}>
+          <Col sm="5">
+            <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
+              <Card.Title style={{ marginTop: 10, textDecoration: 'underline', }} className="text-light">Downtown Farmer's Market</Card.Title>
+              <Card.Img className="text-light" 
+                width="100%"
+                src="https://d3el53au0d7w62.cloudfront.net/wp-content/uploads/2016/12/06/c01_jd_07dec_vacant.jpg"
+                alt="Card image cap"
+              />
+              <Card.Body className="text-light">
+                <Card.Text>
+                  This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
+                  contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
+                  There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables.
+                  </Card.Text>
+              </Card.Body>
+            </Card>
+            <InputGroup style={{ marginTop: 10 }} className="mb-3">
+              <Form.Control
+                placeholder="Share your thoughts here!"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <InputGroup.Append>
+                <Button variant="outline-secondary">Submit</Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Col>
+        </Row>
     );
   }
 }

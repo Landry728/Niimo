@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import '../App.css'
 
 class NavBar extends Component {
   render() {
@@ -9,10 +10,9 @@ class NavBar extends Component {
       return null
     }
     return (
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">niimo</Navbar.Brand>
+      <Navbar className="Navv">
+        <Navbar.Brand style={{ color: 'white' }} href="/">Niimo</Navbar.Brand>
         <Nav.Link style={{ color: 'white' }} href="/newidea">New Idea</Nav.Link>
-        <Nav.Link style={{ color: 'white' }} href="/newupdate">New Update</Nav.Link>
         <Nav.Link style={{ color: 'white' }} href="/feed">News Feed</Nav.Link>
         <Nav.Link style={{ color: 'white' }} href="/map">Map</Nav.Link>
       </Navbar>
@@ -20,4 +20,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(NavBar)
+export default withRouter(NavBar);

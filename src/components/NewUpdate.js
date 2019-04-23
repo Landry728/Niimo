@@ -6,8 +6,10 @@ import Container from 'react-bootstrap/Container'
 import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
+import '../App.css'
 
 const updateRef = firebase.database().ref('updates');
+const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
 const imageRef = firebase.storage().ref('images');
 
 export default class NewUpdate extends Component {
@@ -22,7 +24,7 @@ export default class NewUpdate extends Component {
   }
 
   fileSelectedHandler = (e) => {
-    this.setState({selectedImage: e.target.files[0]});
+    this.setState({ selectedImage: e.target.files[0] });
   }
 
   handleChange = (e) => {
@@ -42,22 +44,29 @@ export default class NewUpdate extends Component {
   submitUpdate = (e) => {
     e.preventDefault();
     let { title, idea, description, selectedImage } = this.state;
-    let newImageRef = imageRef.child(selectedImage.name)
-    newImageRef.put(selectedImage).then(snapshot => {
-      console.log('Uploaded a blob or file!');
+    numImgRef.once('value', snap => {
+      let numImg = snap.val() + 1;
+      numImgRef.set(numImg);
+      let newImageRef = imageRef.child(numImg.toString())
+      newImageRef.put(selectedImage).then(snapshot => {
+        console.log('Uploaded a blob or file!');
+      });
+      let newUpdateRef = updateRef.push();
+      newUpdateRef.set({
+        id: numImg,
+        title: title,
+        idea: idea,
+        description: description,
+        picId: numImg,
+        isIdea: false
+      })
     });
-    let newUpdateRef = updateRef.push();
-    newUpdateRef.set({
-      title: title,
-      idea: idea,
-      description: description
-    })
   }
 
   render() {
     return (
       <Form>
-        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: 'rgb(53, 58, 63)', borderWidth: '5px', borderColor: 'white', borderStyle: 'solid', borderRadius: 25 }}>
+        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Which idea of yours are we talking about?</Form.Label>
@@ -72,7 +81,7 @@ export default class NewUpdate extends Component {
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Title</Form.Label>
-            <Form.Control as="textarea" rows="1" type="text" name="title" onChange={this.handleChange} />
+            <Form.Control as="text" rows="1" type="text" name="title" onChange={this.handleChange} />
           </Form.Group>
 
           <Form.Group controlId="formGridAddress1">
@@ -82,10 +91,10 @@ export default class NewUpdate extends Component {
 
           {/* Image Upload Code */}
           <p>Got any photo(s)?</p>
-          <Button as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+          <Button style = {{ backgroundColor: '#B3C6F5' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
 
           {/* Submit your Update */}
-          <Button style={{ marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
+          <Button style={{ backgroundColor: '#4B3572', marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
             Submit
             </Button>
         </Container>
