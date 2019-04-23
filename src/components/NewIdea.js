@@ -22,12 +22,17 @@ export default class NewIdea extends Component {
       city: '',
       state: '',
       zip: '',
-      selectedImage: ''
+      selectedImages: [],
+      imgNum: 0
     }
   }
 
   fileSelectedHandler = (e) => {
-    this.setState({selectedImage: e.target.files[0]});
+    let selectedImages = [];
+    for(let i = 0; i < e.target.files.length; i++) {
+      selectedImages.push(e.target.files[i]);
+    }
+    this.setState({selectedImages});
   }
 
   handleChange = (e) => {
@@ -52,32 +57,42 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImage } = this.state;
-    numImgRef.once('value', snap => {
-      let numImg = snap.val() + 1;
-      numImgRef.set(numImg);
-      let newImageRef = imageRef.child(numImg.toString())
-      newImageRef.put(selectedImage).then(snapshot => {
-        console.log('Uploaded a blob or file!');
-      });
-      let newIdeaRef = ideaRef.push();
-      newIdeaRef.set({
-        id: numImg,
-        title: title,
-        description: idea,
-        address: address,
-        city: city,
-        state: state,
-        zip: zip,
-        picId: numImg,
-        isIdea: true
-      })
-    });
+    let { title, idea, address, city, state, zip, selectedImages, imgNum } = this.state;
+    numImgRef.on('child_changed', snap => {
+      this.setState({imgNum: snap.val()});
+    })
+
+    // selectedImages.forEach(img => {
+    //   i
+    // })
+    // let newImageRef = imageRef.child();
+    // newImageRef.put()
+    // numImgRef.once('value', snap => {
+    //   let numImg = snap.val() + 1;
+    //   numImgRef.set(numImg);
+    //   let newImageRef = imageRef.child(numImg.toString())
+    //   newImageRef.put(selectedImages[0]).then(snapshot => {
+    //     console.log('Uploaded a blob or file!');
+    //     let newIdeaRef = ideaRef.push();
+    //     newIdeaRef.set({
+    //       id: numImg,
+    //       title: title,
+    //       description: idea,
+    //       address: address,
+    //       city: city,
+    //       state: state,
+    //       zip: zip,
+    //       picId: numImg,
+    //       isIdea: true
+    //     })
+    //   });
+    // });
   }
 
   render() {
     return (
       <Form>
+        <div>{this.state.imgNum}</div>
         <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
@@ -112,7 +127,7 @@ export default class NewIdea extends Component {
             {/* Image Upload Code */}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <p>Got any photo(s)?</p>
-              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" multiple variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Button style={{ backgroundColor: '#4B3572', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>

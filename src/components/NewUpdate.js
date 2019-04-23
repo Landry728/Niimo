@@ -81,7 +81,7 @@ export default class NewUpdate extends Component {
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Title</Form.Label>
-            <Form.Control as="textarea" rows="1" type="text" name="title" onChange={this.handleChange} />
+            <Form.Control as="text" rows="1" type="text" name="title" onChange={this.handleChange} />
           </Form.Group>
 
           <Form.Group controlId="formGridAddress1">
