@@ -1,13 +1,13 @@
 .App {
   text-align: center;
   min-height: 120vh;
-  background: radial-gradient( #5680E9, #C1C8E4 );
+  background: radial-gradient( #5680E9, #B4EADB );
   color: #ffffff;
   padding-bottom: 2vw;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
 }
-
+/* C1C8E4 */
 .Cardd {
   background-color: #5680E9;
   border: 3px solid #C1C8E4;
