@@ -61,6 +61,7 @@ export default class NewsFeed extends Component {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
+        <hr />
         </div>
         <div className="container">
           Updates
