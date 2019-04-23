@@ -58,35 +58,35 @@ export default class NewIdea extends Component {
   submitIdea = (e) => {
     e.preventDefault();
     let { title, idea, address, city, state, zip, selectedImages, imgNum } = this.state;
-    numImgRef.on('child_changed', snap => {
-      this.setState({imgNum: snap.val()});
-    })
+    // numImgRef.on('child_changed', snap => {
+    //   this.setState({imgNum: snap.val()});
+    // })
 
     // selectedImages.forEach(img => {
     //   i
     // })
     // let newImageRef = imageRef.child();
     // newImageRef.put()
-    // numImgRef.once('value', snap => {
-    //   let numImg = snap.val() + 1;
-    //   numImgRef.set(numImg);
-    //   let newImageRef = imageRef.child(numImg.toString())
-    //   newImageRef.put(selectedImages[0]).then(snapshot => {
-    //     console.log('Uploaded a blob or file!');
-    //     let newIdeaRef = ideaRef.push();
-    //     newIdeaRef.set({
-    //       id: numImg,
-    //       title: title,
-    //       description: idea,
-    //       address: address,
-    //       city: city,
-    //       state: state,
-    //       zip: zip,
-    //       picId: numImg,
-    //       isIdea: true
-    //     })
-    //   });
-    // });
+    numImgRef.once('value', snap => {
+      let numImg = snap.val() + 1;
+      numImgRef.set(numImg);
+      let newImageRef = imageRef.child(numImg.toString())
+      newImageRef.put(selectedImages[0]).then(snapshot => {
+        console.log('Uploaded a blob or file!');
+        let newIdeaRef = ideaRef.push();
+        newIdeaRef.set({
+          id: numImg,
+          title: title,
+          description: idea,
+          address: address,
+          city: city,
+          state: state,
+          zip: zip,
+          picId: numImg,
+          isIdea: true
+        })
+      });
+    });
   }
 
   render() {
