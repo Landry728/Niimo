@@ -12,7 +12,6 @@ import "firebase/database"
 import "firebase/storage"
 import CommentCard from './CommentCard'
 import Nav from 'react-bootstrap/Nav'
-import IdeaDescrip from './IdeaDescrip'
 
 const db = firebase.database();
 const storage = firebase.storage();
@@ -64,7 +63,7 @@ export default class Ideas extends React.Component {
 
     // Get idea and pics
     ideaRef.orderByChild("id").on("child_added", snap => {
-      if (snap.val().id == this.props.match.params.id) {
+      if (snap.val().id === this.props.match.params.id) {
         let picIds = snap.val().picId;
         picIds.map((pic) => {
           imageRef.child(`${pic}`).getDownloadURL().then(url => {

@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import Row from 'react-bootstrap/Row'
 import FeedCard from './FeedCard'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
 import firebase from '../config/Firebase'
 import "firebase/database"
 
@@ -19,7 +17,7 @@ export default class NewsFeed extends Component {
 
   componentDidMount() {
     let ideas = [];
-    if (this.props.idea == true){
+    if (this.props.idea === true){
     ideaRef.once('value', snap => {
       snap.forEach(child => {
         ideas.push(child.val());
@@ -63,8 +61,8 @@ export default class NewsFeed extends Component {
         </Row> */}
 
         <div className="container">
-          {this.props.idea==true && <h3>Ideas</h3>}
-          {this.props.idea==false && <h3>Updates</h3>}
+          {this.props.idea===true && <h3>Ideas</h3>}
+          {this.props.idea===false && <h3>Updates</h3>}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {shown.map((info, i) => {
             return <FeedCard info={info} key={i} />

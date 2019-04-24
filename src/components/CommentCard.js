@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
-import firebase from '../config/Firebase'
 import "firebase/storage"
 
 export default class CommentCard extends Component {
@@ -13,7 +12,7 @@ export default class CommentCard extends Component {
         }
     }
     render() {
-        const { title, description, comment } = this.state.info;
+        const { title, comment } = this.state.info;
 
         return (
             <Col sm="3">

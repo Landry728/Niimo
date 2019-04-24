@@ -202,7 +202,7 @@ export class MapContainer extends Component {
             <div>
               <h4>{this.state.selectedPlace.name}</h4>
               <h6>{this.state.selectedPlace.address}</h6>
-              <a href="/">More Info</a>
+              <a href="/idea/29">More Info</a>
             </div>
           </InfoWindow>
         </Map>
