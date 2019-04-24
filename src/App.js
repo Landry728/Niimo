@@ -25,7 +25,7 @@ class App extends Component {
             <Route path="/feed" render={(props) => <NewsFeed {...props} stylingColors={StylingColors} idea={true} />} />
             <Route path="/idea/:id" render={(props) => <Ideas {...props} stylingColors={StylingColors} />} />
             <Route path="/newidea" render={(props) => <NewIdea {...props} stylingColors={StylingColors} />} />
-            <Route path="/update/:id" render={(props) => <Updates {...props} stylingColors={StylingColors} />} />
+            <Route path="/update" render={(props) => <Updates {...props} stylingColors={StylingColors} />} />
             <Route path="/newupdate" render={(props) => <NewUpdate {...props} stylingColors={StylingColors} />} />
             <Route path="/messanger" render={(props) => <Msger {...props} stylingColors={StylingColors} />} />
             <Route path="/form" component={FormPage} />

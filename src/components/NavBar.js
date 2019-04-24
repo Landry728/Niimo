@@ -12,9 +12,9 @@ class NavBar extends Component {
     return (
       <Navbar className="Navv">
         <Navbar.Brand style={{ color: 'white' }} href="/">Niimo</Navbar.Brand>
-        <Nav.Link style={{ color: 'white' }} href="/newidea">New Idea</Nav.Link>
-        <Nav.Link style={{ color: 'white' }} href="/feed">News Feed</Nav.Link>
-        <Nav.Link style={{ color: 'white' }} href="/map">Map</Nav.Link>
+        <Nav.Link style={{ color: 'white' }} href="/newidea">Create</Nav.Link>
+        <Nav.Link style={{ color: 'white' }} href="/feed">Explore</Nav.Link>
+        <Nav.Link style={{ color: 'white' }} href="/map">Locate</Nav.Link>
       </Navbar>
     )
   }
