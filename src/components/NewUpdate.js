@@ -94,7 +94,7 @@ export default class NewUpdate extends Component {
           <Button style = {{ backgroundColor: '#B3C6F5' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
 
           {/* Submit your Update */}
-          <Button style={{ backgroundColor: '#4B3572', marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
+          <Button style={{ backgroundColor:'#BBBDC0', marginLeft: 10 }} variant="primary" type="submit" onClick={this.submitUpdate}>
             Submit
             </Button>
         </Container>

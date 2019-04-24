@@ -128,7 +128,7 @@ export default class NewIdea extends Component {
               <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" multiple variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Button style={{ backgroundColor: '#4B3572', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
+              <Button style={{ backgroundColor: '#429ADE', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
                 Submit 
               </Button>
             </Col>

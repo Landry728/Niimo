@@ -60,22 +60,22 @@ export default class Home extends Component {
               leftImage={railAfter}
               rightImage={railb4}
             />{" "}
-          </div>
+          </div>{" "}
           {/* <img
-                    style={{ marginTop: 350 }}
-                    src={this.state.img}
-                    onMouseEnter={() => {
-                      this.setState({
-                        img:
-                          "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
-                      });
-                    }}
-                    onMouseOut={() => {
-                      this.setState({
-                        img:
-                          "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-                      });
-                    }} */}
+                            style={{ marginTop: 350 }}
+                            src={this.state.img}
+                            onMouseEnter={() => {
+                              this.setState({
+                                img:
+                                  "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
+                              });
+                            }}
+                            onMouseOut={() => {
+                              this.setState({
+                                img:
+                                  "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
+                              });
+                            }} */}{" "}
           {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}{" "}
         </div>{" "}
         <br />
@@ -134,7 +134,9 @@ export default class Home extends Component {
               }}
             >
               <Button
-                style={{ backgroundColor: buttonBackground }}
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 variant="secondary"
                 size="lg"
               >
@@ -143,7 +145,9 @@ export default class Home extends Component {
             </Link>{" "}
             <Link to="/map">
               <Button
-                style={{ backgroundColor: buttonBackground }}
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 size="lg"
               >
                 Find a Location{" "}
