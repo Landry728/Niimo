@@ -28,17 +28,16 @@ export default class Ideas extends React.Component {
       direction: null,
       title: '',
       idea: '',
-      picURL: ''
+      picURLs: []
     };
   }
-  
+
   handleChange = (e) => {
     let fieldName = e.target.name;
     let fieldVal = e.target.value;
     if (fieldName === 'thoughts') {
       this.setState({ thoughts: fieldVal })
     }
-    return
   }
 
   submitThought = (e) => {
@@ -52,21 +51,38 @@ export default class Ideas extends React.Component {
   }
   componentDidMount() {
     let thought = [];
+    let picURLs = [];
+    // Get comments
     commentsRef.on('value', snap => {
       snap.forEach(child => {
         thought.push(child.val());
       })
       this.setState({ thought });
     })
+
+    // Get idea and pics
     ideaRef.orderByChild("id").on("child_added", snap => {
-      if(snap.val().id == this.props.match.params.id) {
-        imageRef.child(`${snap.val().id}`).getDownloadURL().then(url => {
-          this.setState({
-            title: snap.val().title,
-            idea: snap.val().description,
-            picURL: url
+      if (snap.val().id == this.props.match.params.id) {
+        let picIds = snap.val().picId;
+        // if
+        picIds.map((pic) => {
+          imageRef.child(`${pic}`).getDownloadURL().then(url => {
+            picURLs.push(url);
           })
         })
+        this.setState({
+          title: snap.val().title,
+          idea: snap.val().description,
+          picURLs: picURLs
+        })
+        // console.log(snap.val().picId);
+        // imageRef.child(`${snap.val().id}`).getDownloadURL().then(url => {
+        //   this.setState({
+        //     title: snap.val().title,
+        //     idea: snap.val().description,
+        //     picURL: url
+        //   })
+        // })
       }
     })
   }
@@ -77,7 +93,8 @@ export default class Ideas extends React.Component {
     });
   }
   render() {
-    const { index, direction, thought, title, idea, picURL } = this.state;
+    const { index, direction, thought, title, idea, picURLs } = this.state;
+    console.log(picURLs);
     return (
       <div style={{ alignItems: "center" }}>
         <h1 style={{ color: "white" }}>
@@ -86,10 +103,10 @@ export default class Ideas extends React.Component {
         <h5>
           MEMORABLE NIGHTS LASTING IMPRESSIONS PARTY/LAUGH/LIVE
         </h5>
-        <ListGroup variant="flush" style={{Color:"#5680E9"}}>
-          <ListGroup.Item style={{backgroundColor:"#5680E9"}}>16 Supporters</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor:"#5680E9"}}>List price</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor:"#5680E9"}}>Area of the city</ListGroup.Item>
+        <ListGroup variant="flush" style={{ Color: "#5680E9" }}>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>16 Supporters</ListGroup.Item>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>List price</ListGroup.Item>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>Area of the city</ListGroup.Item>
         </ListGroup>
         <br />
         <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', }}>
@@ -102,11 +119,23 @@ export default class Ideas extends React.Component {
           direction={direction}
           onSelect={this.handleSelect}
         >
-          <Carousel.Item>
+          {picURLs.map(url => {
+            return (
+              <Carousel.Item>
+                <img
+                  width={900}
+                  height={500}
+                  src={url}
+                  alt="First slide"
+                />
+              </Carousel.Item>
+            )
+          })}
+          {/* <Carousel.Item>
             <img
               width={900}
               height={500}
-              src={picURL}
+              src={picURLs[0]}
               alt="First slide"
             />
             <Carousel.Caption>
@@ -117,7 +146,7 @@ export default class Ideas extends React.Component {
             <img
               width={900}
               height={500}
-              src={require("../images/abandon6.jpg")}
+              src={picURLs[1]}
               alt="Third slide"
             />
             <Carousel.Caption>
@@ -128,13 +157,13 @@ export default class Ideas extends React.Component {
             <img
               width={900}
               height={500}
-              src={require("../images/abandon4.jpg")}
+              src={picURLs[2]}
               alt="Third slide"
             />
             <Carousel.Caption>
               <h3> Stage 3 </h3>
             </Carousel.Caption>
-          </Carousel.Item>
+          </Carousel.Item> */}
         </Carousel>
         <br />
         <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>

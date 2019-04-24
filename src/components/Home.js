@@ -18,8 +18,7 @@ export default class Home extends Component {
   //     "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
   // };
   render() {
-    // const { cardBackgroundColor, background } = this.props.stylingColors;
-    // console.log(this.props.stylingColors);
+    const { buttonBackground } = this.props.stylingColors;
     return (
       <>
         <div
@@ -135,9 +134,13 @@ export default class Home extends Component {
               }}
             >
               <Button
+<<<<<<< HEAD
                 style={{
                   backgroundColor: "#4B3572"
                 }}
+=======
+                style={{ backgroundColor: buttonBackground }}
+>>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
                 variant="secondary"
                 size="lg"
               >
@@ -146,9 +149,13 @@ export default class Home extends Component {
             </Link>{" "}
             <Link to="/map">
               <Button
+<<<<<<< HEAD
                 style={{
                   backgroundColor: "#4B3572"
                 }}
+=======
+                style={{ backgroundColor: buttonBackground }}
+>>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
                 variant="secondary"
                 size="lg"
               >

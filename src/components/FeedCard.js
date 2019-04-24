@@ -5,6 +5,7 @@ import firebase from '../config/Firebase'
 import "firebase/storage"
 import '../App.css'
 
+const imageRef = firebase.storage().ref('images')
 
 export default class FeedCard extends Component {
   constructor(props) {
@@ -16,10 +17,16 @@ export default class FeedCard extends Component {
   }
   componentWillMount() {
     const { picId } = this.state.info;
-    const imageRef = firebase.storage().ref().child(`images/${picId}`);
-    imageRef.getDownloadURL().then(url => {
-      this.setState({picURL: url});
-    })
+    if (typeof picId === 'number') {
+      imageRef.child(`${picId}`).getDownloadURL().then(url => {
+        this.setState({picURL: url});
+      })
+    }
+    if (typeof picId === 'object') {
+      imageRef.child(`${picId[0]}`).getDownloadURL().then(url => {
+        this.setState({picURL: url});
+      })
+    }
   }
 
   render() {
@@ -27,16 +34,16 @@ export default class FeedCard extends Component {
     let href;
     isIdea ? href = `/idea/${id}` : href = `/update/${id}`;
     return (
-      <Col sm="3">
-        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 15, border: '3px white solid', margin: 10 }}>
+      <Col sm="4">
+        <Card bg="" text="white" style={{ padding: '2%', backgroundColor: '#B4EADB', borderWidth: '5px', borderColor: '#7696E8', borderStyle: 'solid', borderRadius: 15, margin: 10 }}>
           <Card.Img className="text-light"
             width="100%"
             src={this.state.picURL}
             alt="picture"
           />
-          <Card.Body className="text-light">
+          <Card.Body className="text-dark">
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{description}</Card.Text>
+            <Card.Text className="text-truncate">{description}</Card.Text>
             <Card.Link style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
           </Card.Body>
         </Card>

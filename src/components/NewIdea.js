@@ -23,11 +23,11 @@ export default class NewIdea extends Component {
       state: '',
       zip: '',
       selectedImages: [],
-      imgNum: 0
     }
   }
 
   fileSelectedHandler = (e) => {
+    // Select multiple images
     let selectedImages = [];
     for(let i = 0; i < e.target.files.length; i++) {
       selectedImages.push(e.target.files[i]);
@@ -36,6 +36,7 @@ export default class NewIdea extends Component {
   }
 
   handleChange = (e) => {
+    // Sort thru form input and setState for right field
     let fieldName = e.target.name;
     let fieldVal = e.target.value;
     if (fieldName === 'title') {
@@ -57,6 +58,7 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     let { title, idea, address, city, state, zip, selectedImages, imgNum } = this.state;
     // numImgRef.on('child_changed', snap => {
     //   this.setState({imgNum: snap.val()});
@@ -86,13 +88,45 @@ export default class NewIdea extends Component {
           isIdea: true
         })
       });
+=======
+    let { title, idea, address, city, state, zip, selectedImages } = this.state;
+    numImgRef.once('value', snap => {
+      // Upload Images
+      let numImg = snap.val() + 1;
+      let imgIds = [];
+      selectedImages.map((img, i) => {
+        let newNum = numImg + i;
+        imgIds.push(newNum);
+        numImgRef.set(newNum);
+        let newImageRef = imageRef.child(newNum.toString())
+        newImageRef.put(img).then(snapshot => {
+          console.log('Uploaded a blob or file!');
+        });
+      })
+      // Save Post
+      let newIdeaRef = ideaRef.push();
+      newIdeaRef.set({
+        id: numImg,
+        title: title,
+        description: idea,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        picId: imgIds,
+        isIdea: true
+      })
+>>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
     });
   }
 
   render() {
     return (
       <Form>
+<<<<<<< HEAD
         
+=======
+>>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
         <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
