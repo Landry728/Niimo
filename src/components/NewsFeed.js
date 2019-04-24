@@ -13,64 +13,73 @@ export default class NewsFeed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ideas: [],
-      updates: []
+      shown: []
     }
   }
 
   componentDidMount() {
     let ideas = [];
-    let updates = [];
+    if (this.props.idea == true){
     ideaRef.once('value', snap => {
       snap.forEach(child => {
         ideas.push(child.val());
       })
-      this.setState({ideas});
+      this.setState({shown: ideas});
     });
-    updateRef.once('value', snap => {
-      snap.forEach(child => {
-        updates.push(child.val());
-      })
-      this.setState({updates});
-    });
+    }
+    else{
+      updateRef.once('value', snap => {
+        snap.forEach(child => {
+          ideas.push(child.val());
+        })
+        this.setState({shown: ideas});
+      });
+    }
+    // updateRef.once('value', snap => {
+    //   snap.forEach(child => {
+    //     updates.push(child.val());
+    //   })
+    //   this.setState({updates});
+    // });
   }
 
   render() {
-    const {ideas, updates} = this.state;
+    const {shown} = this.state;
     return (
       <>
-        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
-          <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" variant="primary" id="dropdown-basic-button" title="Filter"  >
-            <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
+        {/* <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
+          <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" id="dropdown-custom-1" title="Filter"  >
+            <Dropdown.Item eventKey="1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-2">Downtown</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Downtown</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-3">Uptown</Dropdown.Item>
+            <Dropdown.Item eventKey-="3">Uptown</Dropdown.Item>
           </DropdownButton>
-          <DropdownButton style={{ marginRight: 60 }} size="lg" variant="primary" id="dropdown-basic-button" title="Sort">
-            <Dropdown.Item href="#/action-1">Most Upvotes</Dropdown.Item>
+          <DropdownButton  style={{ fontColor:"white", backgroundColor: '#4B3572', marginRight: 60, borderRadius: 10 }} size="lg" id="dropdown-basic" title="Sort">
+            <Dropdown.Item eventKey="1">Most Upvotes</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-2">Recent</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Recent</Dropdown.Item>
           </DropdownButton>
-        </Row>
+        </Row> */}
 
         <div className="container">
-          Ideas
+          {this.props.idea==true && <h3>Ideas</h3>}
+          {this.props.idea==false && <h3>Updates</h3>}
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
-          {ideas.map((info, i) => {
+          {shown.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
         <hr />
         </div>
-        <div className="container">
+        {/* <div className="container">
           Updates
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
           {updates.map((info, i) => {
             return <FeedCard info={info} key={i} />
           })}
         </Row>
-        </div>
+        </div> */}
       </>  
     )
   }

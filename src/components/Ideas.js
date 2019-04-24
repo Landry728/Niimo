@@ -30,7 +30,7 @@ export default class Ideas extends React.Component {
       direction: null,
       title: '',
       idea: '',
-      picURL: ''
+      picURLs: []
     };
   }
 
@@ -40,7 +40,6 @@ export default class Ideas extends React.Component {
     if (fieldName === 'thoughts') {
       this.setState({ thoughts: fieldVal })
     }
-    return
   }
 
   submitThought = (e) => {
@@ -54,22 +53,37 @@ export default class Ideas extends React.Component {
   }
   componentDidMount() {
     let thought = [];
+    let picURLs = [];
+    // Get comments
     commentsRef.on('value', snap => {
       snap.forEach(child => {
         thought.push(child.val());
       })
       this.setState({ thought });
     })
+
+    // Get idea and pics
     ideaRef.orderByChild("id").on("child_added", snap => {
       if (snap.val().id == this.props.match.params.id) {
-        imageRef.child(`${snap.val().id}`).getDownloadURL().then(url => {
-          this.setState({
-            title: snap.val().title,
-            idea: snap.val().description,
-            city: snap.val().city,
-            picURL: url
+        let picIds = snap.val().picId;
+        picIds.map((pic) => {
+          imageRef.child(`${pic}`).getDownloadURL().then(url => {
+            picURLs.push(url);
           })
         })
+        this.setState({
+          title: snap.val().title,
+          idea: snap.val().description,
+          picURLs: picURLs
+        })
+        // console.log(snap.val().picId);
+        // imageRef.child(`${snap.val().id}`).getDownloadURL().then(url => {
+        //   this.setState({
+        //     title: snap.val().title,
+        //     idea: snap.val().description,
+        //     picURL: url
+        //   })
+        // })
       }
     })
   }
@@ -80,7 +94,7 @@ export default class Ideas extends React.Component {
     });
   }
   render() {
-    const { index, direction, thought, title, idea, city, picURL } = this.state;
+    const { index, direction, thought, title, idea, picURLs } = this.state;
     return (
       <div style={{ alignItems: "center", margin: 30 }}>
         <h1 style={{ color: "white" }}>
@@ -89,47 +103,36 @@ export default class Ideas extends React.Component {
         <h5>
           {idea}
         </h5>
-
+        <ListGroup variant="flush" style={{ Color: "#5680E9" }}>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>16 Supporters</ListGroup.Item>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>List price</ListGroup.Item>
+          <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>Area of the city</ListGroup.Item>
+        </ListGroup>
+        <br />
+        <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', }}>
+          $5,000 pledged of $20,000 goal
+        </p>
+        <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={25} />
         <br />
 
         <Carousel
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
+          fade={true}
         >
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURL}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 1 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={require("../images/abandon6.jpg")}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 2 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={require("../images/abandon4.jpg")}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 3 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {picURLs.map((url, i) => {
+            return (
+              <Carousel.Item key={i}>
+                <img
+                  width={900}
+                  height={500}
+                  src={url}
+                  alt="First slide"
+                />
+              </Carousel.Item>
+            )
+          })}
         </Carousel>
         <hr />
         <Nav variant="tabs" >
@@ -152,7 +155,7 @@ export default class Ideas extends React.Component {
           <Card.Header>Description</Card.Header>
           <Card.Body>
             <Card.Text>
-              {idea}, {city}
+              {idea}
             </Card.Text>
           </Card.Body>
         </Card>
