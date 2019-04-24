@@ -4,29 +4,27 @@
   background: radial-gradient( #5680E9, #B4EADB );
   color: #ffffff;
   padding-bottom: 2vw;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
 }
-/* C1C8E4 */
+
 .Cardd {
   background-color: #5680E9;
   border: 3px solid #C1C8E4;
 }
 
+.titleFont {
+  font-family: 'Lato', sans-serif;
+}
+
+.linkFont {
+  font-weight: 600;
+}
+
 .Navv {
   background-color: #5680E9;
+  font-weight: 600;
 }
 
 .Butt {
   background-color: white;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 120vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
