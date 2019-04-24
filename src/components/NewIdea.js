@@ -23,11 +23,11 @@ export default class NewIdea extends Component {
       state: '',
       zip: '',
       selectedImages: [],
-      imgNum: 0
     }
   }
 
   fileSelectedHandler = (e) => {
+    // Select multiple images
     let selectedImages = [];
     for(let i = 0; i < e.target.files.length; i++) {
       selectedImages.push(e.target.files[i]);
@@ -36,6 +36,7 @@ export default class NewIdea extends Component {
   }
 
   handleChange = (e) => {
+    // Sort thru form input and setState for right field
     let fieldName = e.target.name;
     let fieldVal = e.target.value;
     if (fieldName === 'title') {
@@ -57,42 +58,39 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImages, imgNum } = this.state;
-    // numImgRef.on('child_changed', snap => {
-    //   this.setState({imgNum: snap.val()});
-    // })
-
-    // selectedImages.forEach(img => {
-    //   i
-    // })
-    // let newImageRef = imageRef.child();
-    // newImageRef.put()
+    let { title, idea, address, city, state, zip, selectedImages } = this.state;
     numImgRef.once('value', snap => {
+      // Upload Images
       let numImg = snap.val() + 1;
-      numImgRef.set(numImg);
-      let newImageRef = imageRef.child(numImg.toString())
-      newImageRef.put(selectedImages[0]).then(snapshot => {
-        console.log('Uploaded a blob or file!');
-        let newIdeaRef = ideaRef.push();
-        newIdeaRef.set({
-          id: numImg,
-          title: title,
-          description: idea,
-          address: address,
-          city: city,
-          state: state,
-          zip: zip,
-          picId: numImg,
-          isIdea: true
-        })
-      });
+      let imgIds = [];
+      selectedImages.map((img, i) => {
+        let newNum = numImg + i;
+        imgIds.push(newNum);
+        numImgRef.set(newNum);
+        let newImageRef = imageRef.child(newNum.toString())
+        newImageRef.put(img).then(snapshot => {
+          console.log('Uploaded a blob or file!');
+        });
+      })
+      // Save Post
+      let newIdeaRef = ideaRef.push();
+      newIdeaRef.set({
+        id: numImg,
+        title: title,
+        description: idea,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        picId: imgIds,
+        isIdea: true
+      })
     });
   }
 
   render() {
     return (
       <Form>
-        <div>{this.state.imgNum}</div>
         <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>

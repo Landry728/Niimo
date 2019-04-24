@@ -5,11 +5,9 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Logo from "../images/Logo.jpg";
 import "../App.css";
-import BhamNow from '../images/BhamNow.jpg'
-import Bham1907 from '../images/Bham1907.jpg'
-import ReactCompareImage from 'react-compare-image';
-
-
+import railAfter from "../images/railAfter.jpg";
+import railb4 from "../images/railb4.jpg";
+import ReactCompareImage from "react-compare-image";
 
 export default class Home extends Component {
   // constructor(props){
@@ -20,7 +18,7 @@ export default class Home extends Component {
   //     "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
   // };
   render() {
-    const {  buttonBackground } = this.props.stylingColors;
+    const { buttonBackground } = this.props.stylingColors;
     return (
       <>
         <div
@@ -32,31 +30,60 @@ export default class Home extends Component {
             justifyContent: "center"
           }}
         >
-        <ReactCompareImage hover = 'true'
-  leftImage = {Bham1907}
-  rightImage = {BhamNow}
-        />
-
+          <div style={{}}>
+            <ReactCompareImage
+              hover="true"
+              sliderLineColor="black"
+              handleSize="0"
+              sliderLineWidth="0"
+              sliderPositionPercentage="0"
+              leftImageCss={{
+                marginTop: 250,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "700px",
+                width: "1200px",
+                borderRadius: 20,
+                bottom: 90
+              }}
+              rightImageCss={{
+                marginTop: 250,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "700px",
+                width: "1200px",
+                borderRadius: 20,
+                bottom: 90
+              }}
+              leftImage={railAfter}
+              rightImage={railb4}
+            />{" "}
+          </div>
           {/* <img
-            style={{ marginTop: 350 }}
-            src={this.state.img}
-            onMouseEnter={() => {
-              this.setState({
-                img:
-                  "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
-              });
-            }}
-            onMouseOut={() => {
-              this.setState({
-                img:
-                  "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-              });
-            }} */}
-          
-          {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}
-        </div>
+                    style={{ marginTop: 350 }}
+                    src={this.state.img}
+                    onMouseEnter={() => {
+                      this.setState({
+                        img:
+                          "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
+                      });
+                    }}
+                    onMouseOut={() => {
+                      this.setState({
+                        img:
+                          "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
+                      });
+                    }} */}
+          {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}{" "}
+        </div>{" "}
         <br />
-        <div style={{ width: "100%" }}>
+        <div
+          style={{
+            width: "100%"
+          }}
+        >
           <div
             style={{
               fontSize: 50,
@@ -67,7 +94,7 @@ export default class Home extends Component {
               marginBottom: "7%",
               color: "white"
             }}
-          />
+          />{" "}
           <p
             style={{
               marginRight: "auto",
@@ -78,8 +105,8 @@ export default class Home extends Component {
             }}
           >
             {" "}
-            niimo
-          </p>
+            niimo{" "}
+          </p>{" "}
           <p
             style={{
               marginRight: "auto",
@@ -90,31 +117,41 @@ export default class Home extends Component {
             }}
           >
             {" "}
-            Don't Stop Searching.{" "}
-          </p>
-        </div>
+            Don 't Stop Searching.{" "}
+          </p>{" "}
+        </div>{" "}
         <Row>
-          <Col style={{ display: "flex", justifyContent: "center" }}>
-            <Link to="/feed" style={{ marginRight: 20 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <Link
+              to="/feed"
+              style={{
+                marginRight: 20
+              }}
+            >
               <Button
                 style={{ backgroundColor: buttonBackground }}
                 variant="secondary"
                 size="lg"
               >
-                Find an Idea
-              </Button>
-            </Link>
+                Find an Idea{" "}
+              </Button>{" "}
+            </Link>{" "}
             <Link to="/map">
               <Button
                 style={{ backgroundColor: buttonBackground }}
                 variant="secondary"
                 size="lg"
               >
-                Find a Location
-              </Button>
-            </Link>
-          </Col>
-        </Row>
+                Find a Location{" "}
+              </Button>{" "}
+            </Link>{" "}
+          </Col>{" "}
+        </Row>{" "}
       </>
     );
   }
