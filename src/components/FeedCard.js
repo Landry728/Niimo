@@ -42,9 +42,9 @@ export default class FeedCard extends Component {
             alt="picture"
           />
           <Card.Body className="text-dark">
-            <Card.Title>{title}</Card.Title>
-            <Card.Text className="text-truncate">{description}</Card.Text>
-            <Card.Link style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
+            <Card.Title className="titleFont">{title}</Card.Title>
+            <Card.Text>{description}</Card.Text>
+            <Card.Link className="linkFont" style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
           </Card.Body>
         </Card>
       </Col>

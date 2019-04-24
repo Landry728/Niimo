@@ -70,7 +70,9 @@ export class MapContainer extends Component {
               <Card.Title textDecoration='underlined'>Legend</Card.Title>
               <img src={blupin} alt="pins" />
               = Need Ideas
-                <img src={grnpin} alt="pin" />
+              <br />
+              <br />
+              <img src={grnpin} alt="pin" />
               = Have Ideas
               </Card.Body>
           </Card>

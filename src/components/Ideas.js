@@ -64,7 +64,6 @@ export default class Ideas extends React.Component {
     ideaRef.orderByChild("id").on("child_added", snap => {
       if (snap.val().id == this.props.match.params.id) {
         let picIds = snap.val().picId;
-        // if
         picIds.map((pic) => {
           imageRef.child(`${pic}`).getDownloadURL().then(url => {
             picURLs.push(url);
@@ -94,7 +93,6 @@ export default class Ideas extends React.Component {
   }
   render() {
     const { index, direction, thought, title, idea, picURLs } = this.state;
-    console.log(picURLs);
     return (
       <div style={{ alignItems: "center" }}>
         <h1 style={{ color: "white" }}>
@@ -112,16 +110,17 @@ export default class Ideas extends React.Component {
         <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', }}>
           $5,000 pledged of $20,000 goal
         </p>
-        <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={20} />
+        <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={25} />
         <br />
         <Carousel
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
+          fade={true}
         >
-          {picURLs.map(url => {
+          {picURLs.map((url, i) => {
             return (
-              <Carousel.Item>
+              <Carousel.Item key={i}>
                 <img
                   width={900}
                   height={500}
@@ -131,39 +130,6 @@ export default class Ideas extends React.Component {
               </Carousel.Item>
             )
           })}
-          {/* <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[0]}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 1 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[1]}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 2 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[2]}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 3 </h3>
-            </Carousel.Caption>
-          </Carousel.Item> */}
         </Carousel>
         <br />
         <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
