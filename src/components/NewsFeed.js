@@ -48,13 +48,8 @@ export default class NewsFeed extends Component {
     return (
       <>
         <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
-<<<<<<< HEAD
-          <DropdownButton className="text-light" style={{ color:"white", backgroundColor: '#4B3572', marginRight: 30, borderRadius: 10 }}  size="lg" id="dropdown-basic" title="Filter">
-            <Dropdown.Item eventKey="1">Hoover</Dropdown.Item>
-=======
           <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" id="dropdown-custom-1" title="Filter"  >
-            <Dropdown.Item href="#/action-1">Hoover</Dropdown.Item>
->>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
+            <Dropdown.Item eventKey="1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item eventKey="2">Downtown</Dropdown.Item>
             <Dropdown.Divider />

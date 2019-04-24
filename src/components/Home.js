@@ -134,13 +134,7 @@ export default class Home extends Component {
               }}
             >
               <Button
-<<<<<<< HEAD
-                style={{
-                  backgroundColor: "#4B3572"
-                }}
-=======
                 style={{ backgroundColor: buttonBackground }}
->>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
                 variant="secondary"
                 size="lg"
               >
@@ -149,14 +143,7 @@ export default class Home extends Component {
             </Link>{" "}
             <Link to="/map">
               <Button
-<<<<<<< HEAD
-                style={{
-                  backgroundColor: "#4B3572"
-                }}
-=======
                 style={{ backgroundColor: buttonBackground }}
->>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
-                variant="secondary"
                 size="lg"
               >
                 Find a Location{" "}
