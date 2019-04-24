@@ -47,7 +47,7 @@ export default class NewsFeed extends Component {
     const {shown} = this.state;
     return (
       <>
-        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
+        {/* <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
           <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" id="dropdown-custom-1" title="Filter"  >
             <Dropdown.Item eventKey="1">Hoover</Dropdown.Item>
             <Dropdown.Divider />
@@ -60,7 +60,7 @@ export default class NewsFeed extends Component {
             <Dropdown.Divider />
             <Dropdown.Item eventKey="2">Recent</Dropdown.Item>
           </DropdownButton>
-        </Row>
+        </Row> */}
 
         <div className="container">
           {this.props.idea==true && <h3>Ideas</h3>}
