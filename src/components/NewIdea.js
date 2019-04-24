@@ -22,15 +22,21 @@ export default class NewIdea extends Component {
       city: '',
       state: '',
       zip: '',
-      selectedImage: ''
+      selectedImages: [],
     }
   }
 
   fileSelectedHandler = (e) => {
-    this.setState({selectedImage: e.target.files[0]});
+    // Select multiple images
+    let selectedImages = [];
+    for(let i = 0; i < e.target.files.length; i++) {
+      selectedImages.push(e.target.files[i]);
+    }
+    this.setState({selectedImages});
   }
 
   handleChange = (e) => {
+    // Sort thru form input and setState for right field
     let fieldName = e.target.name;
     let fieldVal = e.target.value;
     if (fieldName === 'title') {
@@ -52,14 +58,21 @@ export default class NewIdea extends Component {
 
   submitIdea = (e) => {
     e.preventDefault();
-    let { title, idea, address, city, state, zip, selectedImage } = this.state;
+    let { title, idea, address, city, state, zip, selectedImages } = this.state;
     numImgRef.once('value', snap => {
+      // Upload Images
       let numImg = snap.val() + 1;
-      numImgRef.set(numImg);
-      let newImageRef = imageRef.child(numImg.toString())
-      newImageRef.put(selectedImage).then(snapshot => {
-        console.log('Uploaded a blob or file!');
-      });
+      let imgIds = [];
+      selectedImages.map((img, i) => {
+        let newNum = numImg + i;
+        imgIds.push(newNum);
+        numImgRef.set(newNum);
+        let newImageRef = imageRef.child(newNum.toString())
+        newImageRef.put(img).then(snapshot => {
+          console.log('Uploaded a blob or file!');
+        });
+      })
+      // Save Post
       let newIdeaRef = ideaRef.push();
       newIdeaRef.set({
         id: numImg,
@@ -69,7 +82,7 @@ export default class NewIdea extends Component {
         city: city,
         state: state,
         zip: zip,
-        picId: numImg,
+        picId: imgIds,
         isIdea: true
       })
     });
@@ -112,7 +125,7 @@ export default class NewIdea extends Component {
             {/* Image Upload Code */}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               <p>Got any photo(s)?</p>
-              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" variant="outline-secondary" onChange={this.fileSelectedHandler} />
+              <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" multiple variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Button style={{ backgroundColor: '#4B3572', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
