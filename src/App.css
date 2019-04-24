@@ -1,12 +1,7 @@
 .App {
   text-align: center;
-<<<<<<< HEAD
-  min-height: 108vh;
-  background: radial-gradient( #5680E9, #C1C8E4 );
-=======
   min-height: 120vh;
   background: radial-gradient( #5680E9, #B4EADB );
->>>>>>> a5bda97b5102edff02cefd0a265353f4874d6301
   color: #ffffff;
   padding-bottom: 2vw;
   font-family: 'Courier New', Courier, monospace;
