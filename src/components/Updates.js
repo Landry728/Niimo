@@ -1,92 +1,43 @@
-import React, { Component } from "react";
-import {
-    Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Card, CardImg, CardText, CardBody, CardTitle, CardLink, Col, Button
-} from 'reactstrap';
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
-const items = [
-    {
-        require: 'src/images/Uptown.jpg',
-        altText: 'Update 1',
-        caption: 'Update 1'
-    },
-    {
-        src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
-        altText: 'Update 2',
-        caption: 'Update 2'
-    },
-    {
-        src: 'src/images/Uptown.jpg',
-        altText: 'Update 3',
-        caption: 'Update 3'
-    }
-];
-
-class Pics extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { activeIndex: 0 };
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-        this.goToIndex = this.goToIndex.bind(this);
-        this.onExiting = this.onExiting.bind(this);
-        this.onExited = this.onExited.bind(this);
-    }
-
-    onExiting() {
-        this.animating = true;
-    }
-
-    onExited() {
-        this.animating = false;
-    }
-
-    next() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-        this.setState({ activeIndex: nextIndex });
-    }
-
-    previous() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-        this.setState({ activeIndex: nextIndex });
-    }
-
-    goToIndex(newIndex) {
-        if (this.animating) return;
-        this.setState({ activeIndex: newIndex });
-    }
-
-    render() {
-
-        const { activeIndex } = this.state;
-
-        const slides = items.map((item) => {
-            return (
-                <CarouselItem
-                    onExiting={this.onExiting}
-                    onExited={this.onExited}
-                    key={item.src}
-                >
-                    <img src={item.src} alt={item.altText} />
-                    <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-                </CarouselItem>
-            );
-        });
-
-        return (
-            <Carousel
-                activeIndex={activeIndex}
-                next={this.next}
-                previous={this.previous}
-            >
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-                {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-            </Carousel>         
-);
-    }
+export default class Updates extends Component {
+  render() {
+    return (
+        <Row style={{ marginTop: '0.5%', width: '100%', height: 300, display: 'flex', justifyContent: 'center', }}>
+          <Col sm="5">
+            <Card bg="dark" text="white" style={{ border: '3px white solid', }}>
+              <Card.Title style={{ marginTop: 10, textDecoration: 'underline', }} className="text-light">Downtown Farmer's Market</Card.Title>
+              <Card.Img className="text-light" 
+                width="100%"
+                src="https://d3el53au0d7w62.cloudfront.net/wp-content/uploads/2016/12/06/c01_jd_07dec_vacant.jpg"
+                alt="Card image cap"
+              />
+              <Card.Body className="text-light">
+                <Card.Text>
+                  This building is located at 123 Main Street downtown. It's extremely spacious and still holds great
+                  contemporary architecture. I'm thinking this building would serve well as a new farmer's market for Birmingham.
+                  There's not many grocery stores downtown with Ideasgrown fresh fruits and vegetables.
+                  </Card.Text>
+              </Card.Body>
+            </Card>
+            <InputGroup style={{ marginTop: 10 }} className="mb-3">
+              <Form.Control
+                placeholder="Share your thoughts here!"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <InputGroup.Append>
+                <Button variant="outline-secondary">Submit</Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Col>
+        </Row>
+    );
+  }
 }
-
-export default Pics;

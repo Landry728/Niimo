@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import '../App.css'
 
 class NavBar extends Component {
   render() {
@@ -12,15 +10,14 @@ class NavBar extends Component {
       return null
     }
     return (
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">niimo</Navbar.Brand>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Search</Button>
-          </Form>
-        </Navbar>
+      <Navbar className="Navv">
+        <Navbar.Brand style={{ color: 'white' }} href="/">Niimo</Navbar.Brand>
+        <Nav.Link style={{ color: 'white' }} href="/newidea">New Idea</Nav.Link>
+        <Nav.Link style={{ color: 'white' }} href="/feed">News Feed</Nav.Link>
+        <Nav.Link style={{ color: 'white' }} href="/map">Map</Nav.Link>
+      </Navbar>
     )
   }
 }
 
-export default withRouter(NavBar)
+export default withRouter(NavBar);

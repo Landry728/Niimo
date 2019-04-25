@@ -1,23 +1,30 @@
 .App {
   text-align: center;
-  font-size: calc(10px + 2vmin);
-  min-height: 125vh;
-  background-color: #282c34;
+  min-height: 120vh;
+  background: radial-gradient( #5680E9, #B4EADB );
+  color: #ffffff;
+  padding-bottom: 2vw;
+  font-family: 'Raleway', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Cardd {
+  background-color: #5680E9;
+  border: 3px solid #C1C8E4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.titleFont {
+  font-family: 'Lato', sans-serif;
+}
+
+.linkFont {
+  font-weight: 600;
+}
+
+.Navv {
+  background-color: #5680E9;
+  font-weight: 600;
+}
+
+.Butt {
+  background-color: white;
 }
