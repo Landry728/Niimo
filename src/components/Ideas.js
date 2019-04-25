@@ -10,7 +10,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
-import FeedCard from './CommentCard'
+import CommentCard from './CommentCard'
+import Nav from 'react-bootstrap/Nav'
 
 const db = firebase.database();
 const storage = firebase.storage();
@@ -63,9 +64,8 @@ export default class Ideas extends React.Component {
 
     // Get idea and pics
     ideaRef.orderByChild("id").on("child_added", snap => {
-      if (snap.val().id == this.props.match.params.id) {
+      if (snap.val().id === this.props.match.params.id) {
         let picIds = snap.val().picId;
-        // if
         picIds.map((pic) => {
           imageRef.child(`${pic}`).getDownloadURL().then(url => {
             picURLs.push(url);
@@ -95,16 +95,14 @@ export default class Ideas extends React.Component {
     });
   }
   render() {
-    if (this.state.picURLs[0] != null) {
-      const { index, direction, thought, title, idea, picURLs } = this.state;
-      console.log(picURLs);
-      return (
-        <div style={{ alignItems: "center" }}>
-          <h1 style={{ color: "white" }}>
-            Modern Hookah Lounge
+    const { index, direction, thought, title, idea, picURLs } = this.state;
+    return (
+      <div style={{ alignItems: "center", margin: 30 }}>
+        <h1 style={{ color: "white" }}>
+          {title}
         </h1>
-          <h5>
-            MEMORABLE NIGHTS LASTING IMPRESSIONS PARTY/LAUGH/LIVE
+        <h5>
+          {idea}
         </h5>
           <ListGroup variant="flush" style={{ Color: "#5680E9" }}>
             <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>16 Supporters</ListGroup.Item>
@@ -115,87 +113,73 @@ export default class Ideas extends React.Component {
           <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', }}>
             $5,000 pledged of $20,000 goal
         </p>
-          <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={20} />
-          <br />
-          <Carousel
-            activeIndex={index}
-            direction={direction}
-            onSelect={this.handleSelect}
-          >
-            {picURLs.map((url, i) => {
-              return (
-                <Carousel.Item>
-                  <img
-                    width={900}
-                    height={500}
-                    src={picURLs[i]}
-                    alt="First slide"
-                  />
-                </Carousel.Item>
-              )
-            })}
-            {/* <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[0]}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 1 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[1]}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 2 </h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              width={900}
-              height={500}
-              src={picURLs[2]}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3> Stage 3 </h3>
-            </Carousel.Caption>
-          </Carousel.Item> */}
-          </Carousel>
-          <br />
-          <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
-            <Card.Header>Description</Card.Header>
-            <Card.Body>
-              <Card.Text>
-                {idea}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={25} />
+        <br />
 
-          <InputGroup style={{ width: '50%', justifyContent: 'center', marginTop: '1%', marginLeft: '25%', }} className="mb-3" onClick={this.submitComment}>
-            <Form.Control
-              placeholder="Share your thoughts here!"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append>
-              <Button variant="outline-secondary">Submit</Button>
-            </InputGroup.Append>
-          </InputGroup>
-          <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
-            {thought.map((info, i) => {
-              return <FeedCard info={info} key={i} />
-            })}
-          </Row>
-        </div>
-      );
-    }
-    return 1
+        <Carousel
+          activeIndex={index}
+          direction={direction}
+          onSelect={this.handleSelect}
+          fade={true}
+        >
+          {picURLs.map((url, i) => {
+            return (
+              <Carousel.Item key={i}>
+                <img
+                  width={900}
+                  height={500}
+                  src={url}
+                  alt="First slide"
+                />
+              </Carousel.Item>
+            )
+          })}
+        </Carousel>
+        <hr />
+        <Nav variant="tabs" >
+          <Nav.Item >
+            <Nav.Link style={{ color:"white" }} onSelect >Description</Nav.Link>
+          </Nav.Item>
+          <Nav.Item >
+            <Nav.Link style={{ color: "white" }} >Comments</Nav.Link>
+          </Nav.Item>
+          <Nav.Item >
+            <Nav.Link style={{ color: "white" }} >Updates</Nav.Link>
+          </Nav.Item>
+        </Nav>
+
+        <hr />
+        <br />
+
+        <br />
+        <Card bg="secondary" style={{ justifyContent: 'center', marginLeft: '8%', marginRight: '8%' }}>
+          <Card.Header>Description</Card.Header>
+          <Card.Body>
+            <Card.Text>
+              {idea}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <InputGroup style={{ width: '50%', justifyContent: 'center', marginTop: '1%', marginLeft: '25%', }} className="mb-3" onClick={this.submitComment}>
+          <Form.Control
+            placeholder="Share your thoughts here!"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <InputGroup.Append>
+            <Button variant="outline-secondary">Submit</Button>
+          </InputGroup.Append>
+        </InputGroup>
+        <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
+          {thought.map((info, i) => {
+            return <CommentCard info={info} key={i} />
+          })}
+        </Row>
+        <h3>
+          Project Timeline
+        </h3>
+      </div>
+    );
   }
 }

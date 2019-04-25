@@ -3,60 +3,69 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
-import Logo from "../images/Logo.jpg";
 import "../App.css";
-import BhamNow from '../images/BhamNow.jpg'
-import Bham1907 from '../images/Bham1907.jpg'
-import ReactCompareImage from 'react-compare-image';
-
-
+import railAfter from "../images/railAfter.jpg";
+import railb4 from "../images/railb4.jpg";
+import ReactCompareImage from "react-compare-image";
 
 export default class Home extends Component {
-  // constructor(props){
-  //   super(props);
-  // }
-  // state = {
-  //   img:
-  //     "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-  // };
   render() {
     const { buttonBackground } = this.props.stylingColors;
     return (
       <>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div
           style={{
             width: "100%",
             height: 300,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
-        <ReactCompareImage hover = 'true'
-  leftImage = {Bham1907}
-  rightImage = {BhamNow}
-        />
-
-          {/* <img
-            style={{ marginTop: 350 }}
-            src={this.state.img}
-            onMouseEnter={() => {
-              this.setState({
-                img:
-                  "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
-              });
-            }}
-            onMouseOut={() => {
-              this.setState({
-                img:
-                  "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-              });
-            }} */}
-          
-          {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}
+          <div style={{}}>
+            <ReactCompareImage
+              hover="true"
+              sliderLineColor="black"
+              handleSize="0"
+              sliderLineWidth="0"
+              sliderPositionPercentage="0"
+              leftImageCss={{
+                marginTop: 250,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "700px",
+                width: "1200px",
+                borderRadius: 20,
+                bottom: 90
+              }}
+              rightImageCss={{
+                marginTop: 250,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "700px",
+                width: "1200px",
+                borderRadius: 20,
+                bottom: 90
+              }}
+              leftImage={railAfter}
+              rightImage={railb4}
+            />
+          </div>
         </div>
         <br />
-        <div style={{ width: "100%" }}>
+        <div
+          style={{
+            width: "100%"
+          }}
+        >
           <div
             style={{
               fontSize: 50,
@@ -69,18 +78,19 @@ export default class Home extends Component {
             }}
           />
           <p
+            className="linkFont"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
               fontSize: 50,
               width: "60%",
-              marginTop: 300
+              marginTop: 350
             }}
           >
-            {" "}
-            niimo
+            Niimo
           </p>
           <p
+            className="linkFont"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -89,15 +99,26 @@ export default class Home extends Component {
               marginBottom: 50
             }}
           >
-            {" "}
-            Don't Stop Searching.{" "}
+            Don 't Stop Searching.
           </p>
         </div>
         <Row>
-          <Col style={{ display: "flex", justifyContent: "center" }}>
-            <Link to="/feed" style={{ marginRight: 20 }}>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <Link
+              to="/feed"
+              style={{
+                marginRight: 20
+              }}
+            >
               <Button
-                style={{ backgroundColor: buttonBackground }}
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 variant="secondary"
                 size="lg"
               >
@@ -106,8 +127,9 @@ export default class Home extends Component {
             </Link>
             <Link to="/map">
               <Button
-                style={{ backgroundColor: buttonBackground }}
-                variant="secondary"
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 size="lg"
               >
                 Find a Location
