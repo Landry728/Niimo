@@ -3,31 +3,29 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
-import Logo from "../images/Logo.jpg";
 import "../App.css";
 import railAfter from "../images/railAfter.jpg";
 import railb4 from "../images/railb4.jpg";
 import ReactCompareImage from "react-compare-image";
 
 export default class Home extends Component {
-  // constructor(props){
-  //   super(props);
-  // }
-  // state = {
-  //   img:
-  //     "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-  // };
   render() {
     const { buttonBackground } = this.props.stylingColors;
     return (
       <>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div
           style={{
             width: "100%",
             height: 300,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <div style={{}}>
@@ -59,25 +57,9 @@ export default class Home extends Component {
               }}
               leftImage={railAfter}
               rightImage={railb4}
-            />{" "}
+            />
           </div>
-          {/* <img
-                    style={{ marginTop: 350 }}
-                    src={this.state.img}
-                    onMouseEnter={() => {
-                      this.setState({
-                        img:
-                          "https://i1.wp.com/altoday.com/wp-content/uploads/2015/10/Birmingham-Alabama.jpg?fit=1920%2C1271"
-                      });
-                    }}
-                    onMouseOut={() => {
-                      this.setState({
-                        img:
-                          "https://upload.wikimedia.org/wikipedia/commons/7/78/Birmingham_Alabama_1915.jpg"
-                      });
-                    }} */}
-          {/* <img alt="logo" src={Logo} style={{ marginTop: '15%', height: 300 }} className='rounded-circle' /> */}{" "}
-        </div>{" "}
+        </div>
         <br />
         <div
           style={{
@@ -94,20 +76,21 @@ export default class Home extends Component {
               marginBottom: "7%",
               color: "white"
             }}
-          />{" "}
+          />
           <p
+            className="linkFont"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
               fontSize: 50,
               width: "60%",
-              marginTop: 300
+              marginTop: 350
             }}
           >
-            {" "}
-            niimo{" "}
-          </p>{" "}
+            Niimo
+          </p>
           <p
+            className="linkFont"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -116,10 +99,9 @@ export default class Home extends Component {
               marginBottom: 50
             }}
           >
-            {" "}
-            Don 't Stop Searching.{" "}
-          </p>{" "}
-        </div>{" "}
+            Don 't Stop Searching.
+          </p>
+        </div>
         <Row>
           <Col
             style={{
@@ -134,24 +116,27 @@ export default class Home extends Component {
               }}
             >
               <Button
-                style={{ backgroundColor: buttonBackground }}
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 variant="secondary"
                 size="lg"
               >
-                Find an Idea{" "}
-              </Button>{" "}
-            </Link>{" "}
+                Find an Idea
+              </Button>
+            </Link>
             <Link to="/map">
               <Button
-                style={{ backgroundColor: buttonBackground }}
-                variant="secondary"
+                style={{
+                  backgroundColor: buttonBackground
+                }}
                 size="lg"
               >
-                Find a Location{" "}
-              </Button>{" "}
-            </Link>{" "}
-          </Col>{" "}
-        </Row>{" "}
+                Find a Location
+              </Button>
+            </Link>
+          </Col>
+        </Row>
       </>
     );
   }

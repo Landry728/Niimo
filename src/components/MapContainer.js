@@ -9,6 +9,7 @@ import grnpin from '../images/green32.png'
 import Col from 'react-bootstrap/Col'
 import firebase from '../config/Firebase'
 import "firebase/database"
+import "../App.css"
 
 const locationsRef = firebase.database().ref('locations');
 
@@ -55,18 +56,18 @@ export class MapContainer extends Component {
   render() {
     const style = {
       width: '65vw',
-      height: '85vh',
+      height: '80vh',
       'marginLeft': 'auto',
       'marginRight': 'auto',
-      'marginTop': '2vh',
+      'marginTop': '4vh',
     }
     return (
       <div>
 
         {/* PIN LEGEND  */}
         <Col>
-          <Card text="white" style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: '#4B3572', border: '3px solid', borderColor: '#C1C8E4', marginTop: 20 }}>
-            <Card.Body className="text-light">
+          <Card style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: 'white', border: '1px solid', borderColor: '#BBBDC0', marginTop: 20 }}>
+            <Card.Body className="text-dark">
               <Card.Title textDecoration='underlined'>Legend</Card.Title>
               <img src={blupin} alt="pins" />
               = Need Ideas
@@ -85,7 +86,7 @@ export class MapContainer extends Component {
           google={this.props.google}
           onClick={this.onMapClicked}
           style={style}
-          zoom={14}
+          zoom={15}
           initialCenter={{ lat: 33.515259, lng: -86.810442 }}>
           <Marker
             onClick={this.onMarkerClick}
@@ -201,7 +202,7 @@ export class MapContainer extends Component {
             <div>
               <h4>{this.state.selectedPlace.name}</h4>
               <h6>{this.state.selectedPlace.address}</h6>
-              <a href="/">More Info</a>
+              <a href="/idea/29">More Info</a>
             </div>
           </InfoWindow>
         </Map>
