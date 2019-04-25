@@ -36,7 +36,8 @@ export default class Ideas extends React.Component {
       direction: null,
       title: '',
       idea: '',
-      picURLs: []
+      picURLs: [],
+      mounted: false
     };
   }
 
@@ -74,7 +75,7 @@ export default class Ideas extends React.Component {
 
     // Get idea and pics
     ideaRef.orderByChild("id").on("child_added", snap => {
-      if (snap.val().id == this.props.match.params.id) {
+      if (snap.val().id === this.props.match.params.id) {
         let picIds = snap.val().picId;
         picIds.map((pic) => {
           imageRef.child(`${pic}`).getDownloadURL().then(url => {
@@ -88,6 +89,7 @@ export default class Ideas extends React.Component {
         })
       }
     })
+    this.setState({mounted: true})
   }
   handleSelect(selectedIndex, e) {
     this.setState({
@@ -208,6 +210,56 @@ export default class Ideas extends React.Component {
     //       <Nav.Link style={{ color: "white" }} >Updates</Nav.Link>
     //     </Nav.Item>
     //   </Nav>
+      // <div style={{ alignItems: "center", margin: 30 }}>
+      //   <h1 style={{ color: "white" }}>
+      //     {title}
+      //   </h1>
+      //   <h5>
+      //     {idea}
+      //   </h5>
+      //     <ListGroup variant="flush" style={{ Color: "#5680E9" }}>
+      //       <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>16 Supporters</ListGroup.Item>
+      //       <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>List price</ListGroup.Item>
+      //       <ListGroup.Item style={{ backgroundColor: "#5680E9" }}>Area of the city</ListGroup.Item>
+      //     </ListGroup>
+      //     <br />
+      //     <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', }}>
+      //       $5,000 pledged of $20,000 goal
+      //   </p>
+      //   <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7", marginRight: "30%", marginLeft: "30%" }} now={25} />
+      //   <br />
+      // </div>
+      //   <Carousel
+      //     activeIndex={index}
+      //     direction={direction}
+      //     onSelect={this.handleSelect}
+      //     fade={true}
+      //   >
+      //     {picURLs.map((url, i) => {
+      //       return (
+      //         <Carousel.Item key={i}>
+      //           <img
+      //             width={900}
+      //             height={500}
+      //             src={url}
+      //             alt="First slide"
+      //           />
+      //         </Carousel.Item>
+      //       )
+      //     })}
+      //   </Carousel>
+      //   <hr />
+      // <Nav variant="tabs" >
+      //   <Nav.Item >
+      //     <Nav.Link style={{ color:"white" }} onSelect >Description</Nav.Link>
+      //   </Nav.Item>
+      //   <Nav.Item >
+      //     <Nav.Link style={{ color: "white" }} >Comments</Nav.Link>
+      //   </Nav.Item>
+      //   <Nav.Item >
+      //     <Nav.Link style={{ color: "white" }} >Updates</Nav.Link>
+      //   </Nav.Item>
+      // </Nav>
 
     //     <hr />
     //     <br />

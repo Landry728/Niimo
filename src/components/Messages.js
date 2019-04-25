@@ -3,9 +3,6 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import FormGroup from 'react-bootstrap/FormGroup'
-import FormControl from 'react-bootstrap/FormControl'
-import InputGroup from 'react-bootstrap/InputGroup'
 
 export default class msger extends Component {
   constructor(props) {
@@ -76,7 +73,7 @@ export default class msger extends Component {
               <Form>
                 <Form.Group controlId="formBasicEmail">
                 <Form.Row><Col xs={10} >
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter message" />
                   </Col>
                   <Col xs={1}>
                   <Button>send</Button>
