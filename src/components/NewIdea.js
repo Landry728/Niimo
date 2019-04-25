@@ -91,7 +91,7 @@ export default class NewIdea extends Component {
   render() {
     return (
       <Form>
-        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#5680E9', borderWidth: '5px', borderColor: '#C1C8E4', borderStyle: 'solid', borderRadius: 25 }}>
+        <Container style={{ padding: '2%', marginTop: '5%', width: '45%', backgroundColor: '#fff', borderWidth: '3px', borderColor: '#BBBDC0', borderStyle: 'solid', borderRadius: 15 }}>
           <Form.Group controlId="formGridTitle">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" name="title" placeholder="Enter Title" onChange={this.handleChange} />
@@ -128,7 +128,7 @@ export default class NewIdea extends Component {
               <Button style={{ backgroundColor: '#B3C6F5', marginRight: '2vw' }} as="input" type="file" multiple variant="outline-secondary" onChange={this.fileSelectedHandler} />
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Button style={{ backgroundColor: '#429ADE', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
+              <Button style={{ backgroundColor: '#429ADF', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
                 Submit 
               </Button>
             </Col>

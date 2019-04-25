@@ -99,7 +99,7 @@ export default class Home extends Component {
               marginBottom: 50
             }}
           >
-            Don 't Stop Searching.
+            Don't Stop Searching
           </p>
         </div>
         <Row>
