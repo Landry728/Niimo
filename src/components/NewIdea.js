@@ -83,7 +83,8 @@ export default class NewIdea extends Component {
         state: state,
         zip: zip,
         picId: imgIds,
-        isIdea: true
+        isIdea: true,
+        date: (new Date().toDateString())
       })
     });
   }
