@@ -30,6 +30,7 @@ export default class Home extends Component {
         >
           <div style={{}}>
             <ReactCompareImage
+              autoReloadSpan='0'
               hover="true"
               sliderLineColor="black"
               handleSize="0"
