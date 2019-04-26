@@ -73,7 +73,7 @@ export default class msger extends Component {
               <Form>
                 <Form.Group controlId="formBasicEmail">
                 <Form.Row><Col xs={10} >
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter message" />
                   </Col>
                   <Col xs={1}>
                   <Button>send</Button>

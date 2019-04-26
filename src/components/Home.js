@@ -118,7 +118,8 @@ export default class Home extends Component {
             >
               <Button
                 style={{
-                  backgroundColor: buttonBackground
+                  backgroundColor: '#429ADF',
+                  color: 'rgb(39, 46, 60)'
                 }}
                 variant="secondary"
                 size="lg"
@@ -129,7 +130,8 @@ export default class Home extends Component {
             <Link to="/map">
               <Button
                 style={{
-                  backgroundColor: buttonBackground
+                  backgroundColor: '#429ADF',
+                  color: 'rgb(39, 46, 60)'
                 }}
                 size="lg"
               >
