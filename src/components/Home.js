@@ -16,9 +16,6 @@ export default class Home extends Component {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
         <div
           style={{
             width: "100%",
@@ -36,22 +33,22 @@ export default class Home extends Component {
               sliderLineWidth="0"
               sliderPositionPercentage="0"
               leftImageCss={{
-                marginTop: 250,
+                marginTop: 100,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "700px",
-                width: "1200px",
+                height: "500px",
+                width: "1000px",
                 borderRadius: 20,
                 bottom: 90
               }}
               rightImageCss={{
-                marginTop: 250,
+                marginTop: 100,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "700px",
-                width: "1200px",
+                height: "500px",
+                width: "1000px",
                 borderRadius: 20,
                 bottom: 90
               }}
@@ -84,7 +81,7 @@ export default class Home extends Component {
               marginLeft: "auto",
               fontSize: 50,
               width: "60%",
-              marginTop: 350
+              marginTop: 100
             }}
           >
             Niimo

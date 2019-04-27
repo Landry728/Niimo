@@ -10,7 +10,7 @@ class NavBar extends Component {
       return null
     }
     return (
-      <Navbar className="Navv">
+      <Navbar className="Navv" style={{zIndex: 10}}>
         <Navbar.Brand style={{ color: 'white' }} href="/">Niimo</Navbar.Brand>
         <Nav.Link style={{ color: 'white' }} href="/newidea">Create</Nav.Link>
         <Nav.Link style={{ color: 'white' }} href="/feed">Explore</Nav.Link>

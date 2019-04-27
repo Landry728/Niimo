@@ -55,18 +55,18 @@ export class MapContainer extends Component {
 
   render() {
     const style = {
-      width: '65vw',
-      height: '80vh',
+      // width: '50%',
+      height: '100%',
       'marginLeft': 'auto',
       'marginRight': 'auto',
-      'marginTop': '4vh',
+      'marginTop': '-10vh',
     }
     return (
-      <div>
+      <div style={{height: '80%'}}>
 
         {/* PIN LEGEND  */}
         <Col>
-          <Card style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: 'white', border: '1px solid', borderColor: '#BBBDC0', marginTop: 20 }}>
+          <Card style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: 'white', border: '1px solid', borderColor: '#BBBDC0', marginTop: 20, zIndex: 5 }}>
             <Card.Body className="text-dark">
               <Card.Title textDecoration='underlined'>Legend</Card.Title>
               <img src={blupin} alt="pins" />
