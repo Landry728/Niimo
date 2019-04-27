@@ -13,6 +13,9 @@ export default class Home extends Component {
     const { buttonBackground } = this.props.stylingColors;
     return (
       <>
+      <div style={{
+    
+      }}>
         <br />
         <br />
         <br />
@@ -79,9 +82,11 @@ export default class Home extends Component {
             style={{
               marginRight: "auto",
               marginLeft: "auto",
-              fontSize: 50,
+              fontSize: 70,
               width: "60%",
-              marginTop: 100
+              letterSpacing: 1,
+              marginTop: 100,
+              marginBottom: "-6px"
             }}
           >
             Niimo
@@ -91,12 +96,23 @@ export default class Home extends Component {
             style={{
               marginRight: "auto",
               marginLeft: "auto",
-              fontSize: 50,
+              fontSize: 20,
               width: "60%",
-              marginBottom: 50
+              marginBottom: 30,
+              marginTop: -30
             }}
           >
             Don't Stop Searching
+          </p>
+          <p
+            style={{
+              marginRight: "auto",
+              marginLeft: "auto",
+              fontSize: 15,
+              marginBottom: 50
+            }}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
           </p>
         </div>
         <Row>
@@ -136,6 +152,7 @@ export default class Home extends Component {
             </Link>
           </Col>
         </Row>
+        </div>
       </>
     );
   }

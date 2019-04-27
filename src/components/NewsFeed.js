@@ -12,27 +12,13 @@ export default class NewsFeed extends Component {
     super(props);
     this.state = {
       shown: [],
-      idea: true
+      idea: false,
+      prevLoad: true
     }
   }
 
-  componentDidMount() {
-    this.setState({idea: true})
-    let ideas = [];
-    ideaRef.once('value', snap => {
-      snap.forEach(child => {
-        ideas.push(child.val());
-      })
-      this.setState({ shown: ideas });
-    });
-    // updateRef.once('value', snap => {
-    //   snap.forEach(child => {
-    //     updates.push(child.val());
-    //   })
-    //   this.setState({updates});
-    // });
-  }
-  switchFeed() {
+  setShown() {
+    
     let ideas = [];
     if (this.state.idea === false) {
       ideaRef.once('value', snap => {
@@ -40,6 +26,7 @@ export default class NewsFeed extends Component {
           ideas.push(child.val());
         })
         this.setState({ shown: ideas });
+        this.setState({prevLoad: false})
       });
     }
     else {
@@ -47,23 +34,35 @@ export default class NewsFeed extends Component {
         snap.forEach(child => {
           ideas.push(child.val());
         })
+        console.log(ideas)
         this.setState({ shown: ideas });
+        this.setState({prevLoad: true})
       });
     }
+
+    // updateRef.once('value', snap => {
+    //   snap.forEach(child => {
+    //     updates.push(child.val());
+    //   })
+    //   this.setState({updates});
+    // });
   }
   render() {
-    const { shown } = this.state;
+    if(this.state.prevLoad !== this.state.idea){
+      this.setShown();
+    }
+    console.log(this.state.idea)
+    // var { shown } = this.state;
+    // console.log(shown)
     return (
       <>
         <button onClick={() => {
-          this.switchFeed();
           if (this.state.idea === true) {
             this.setState({ idea: false });
           } else {
-
             this.setState({ idea: true });
           }
-          
+
         }}></button>
         {/* <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
           <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" id="dropdown-custom-1" title="Filter"  >
@@ -79,12 +78,12 @@ export default class NewsFeed extends Component {
             <Dropdown.Item eventKey="2">Recent</Dropdown.Item>
           </DropdownButton>
         </Row> */}
-
         <div className="container">
           {this.props.idea === true && <h3>Ideas</h3>}
           {this.props.idea === false && <h3>Updates</h3>}
           <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
-            {shown.map((info, i) => {
+            {this.state.shown.map((info, i) => {
+              console.log(this.state.shown);
               return <FeedCard info={info} key={i} />
             })}
           </Row>
