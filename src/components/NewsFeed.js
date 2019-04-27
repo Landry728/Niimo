@@ -17,6 +17,7 @@ export default class NewsFeed extends Component {
   }
 
   componentDidMount() {
+    this.setState({idea: true})
     let ideas = [];
     ideaRef.once('value', snap => {
       snap.forEach(child => {
@@ -33,7 +34,7 @@ export default class NewsFeed extends Component {
   }
   switchFeed() {
     let ideas = [];
-    if (this.state.idea === true) {
+    if (this.state.idea === false) {
       ideaRef.once('value', snap => {
         snap.forEach(child => {
           ideas.push(child.val());
@@ -55,12 +56,14 @@ export default class NewsFeed extends Component {
     return (
       <>
         <button onClick={() => {
+          this.switchFeed();
           if (this.state.idea === true) {
             this.setState({ idea: false });
           } else {
+
             this.setState({ idea: true });
           }
-          this.switchFeed();
+          
         }}></button>
         {/* <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'right', justifyContent: 'flex-end', margin: 10 }}>
           <DropdownButton style={{  marginRight: 30, radius: 10 }} size="lg" id="dropdown-custom-1" title="Filter"  >
