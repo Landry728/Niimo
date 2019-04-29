@@ -101,18 +101,21 @@ export default class Home extends Component {
           >
             Don't Stop Searching
           </p>
-          <p
+          <h5
             style={{
               marginRight: "auto",
               marginLeft: "auto",
-              fontSize: 15,
               marginBottom: 50,
-              paddingLeft: '5%',
-              paddingRight: '5%'
+              paddingLeft: '10%',
+              paddingRight: '10%'
             }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-          </p>
+            This application is designed to combant a major issue in our home city: abandoned & vacant buildings.
+            Via our platform, you can connect with others, sharing thoughts and ideas on specific 
+            commercial estates for sale or lease that have been long forgotten. We hope that with this application the great 
+            city of Birmingham, Alabama, can become greater. From facilitating the aspects of investments, to informative 
+            collections of assorted properties. The capacity of this application for Birmingham's prosperity and expansion are boundless.
+          </h5>
         </div>
         <Row>
           <Col

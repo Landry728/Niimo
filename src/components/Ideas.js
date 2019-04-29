@@ -14,6 +14,7 @@ import Tab from 'react-bootstrap/Tab'
 import building from '../images/abandon1.jpg'
 import blueprint from '../images/blueprint.jpg'
 
+// FireBase constants
 const db = firebase.database();
 const storage = firebase.storage();
 const ideaRef = db.ref("ideas");
@@ -38,6 +39,7 @@ export default class Ideas extends React.Component {
     };
   }
 
+  // Update/Comment text handler
   handleChange = (e) => {
     let fieldName = e.target.name;
     let fieldVal = e.target.value;
@@ -52,11 +54,10 @@ export default class Ideas extends React.Component {
       })
     }
   }
-
+  // Post Update
   submitUpdate = (e) => {
     e.preventDefault();
     const { postId, update } = this.state;
-    // Post Update
     let newUpdate = updateRef.push();
     newUpdate.set({
       id: postId,
@@ -64,11 +65,10 @@ export default class Ideas extends React.Component {
       body: update
     })
   }
-
+  // Post Comment
   submitComment = (e) => {
     e.preventDefault();
     const { postId, comment } = this.state;
-    // Post Comment
     let newCommentRef = commentsRef.push();
     newCommentRef.set({
       id: postId,
@@ -76,12 +76,11 @@ export default class Ideas extends React.Component {
       body: comment
     })
   }
-
+  // Get idea, pics, comments, and updates
   componentWillMount() {
     let thoughts = [];
     let updates = [];
     let picURLs = [];
-    // Get idea, pics, comments, and updates
     ideaRef.orderByChild("id").on("child_added", snap => {
       if (snap.val().id == this.props.match.params.id) {
         let picIds = snap.val().picId;
@@ -140,8 +139,9 @@ export default class Ideas extends React.Component {
             <div style={{ width: '20vw' }}>
               <h5>{idea}</h5>
               <Button style={{ margin: '6vh', backgroundColor: '#429ADF', color: 'rgb(39, 46, 60)' }}>Support this Idea</Button>
-              <p>Created by: <br /> Landry Leopard</p>
-
+              <h5>Created by: <br /> Landry Leopard</h5>
+              <br />
+              <h5>50 <br /> Supporters</h5>
               <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', marginTop: '4vh' }}>
                 $5,000 pledged of $20,000 goal
               </p>
@@ -154,16 +154,16 @@ export default class Ideas extends React.Component {
             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
               <Tab eventKey="home" title="Campaign">
                 <div style={{ backgroundColor: 'white', width: '100%', padding: '5%', border: '1px #BBBDC0 solid' }}>
-                  <div className="container" style={{ textAlign: 'left'}}>
+                  <div className="container" style={{ textAlign: 'left' }}>
                     <h3>About</h3>
                     <br />
                     <h6>
                       My name is Landry Leopard. I'm an entrepreneur based out of Birmingham, Alabama. This project
                       is designed to bring affordable fresh food to the inner city while transforming otherwise unused
-                      property into something that benefits everyone. 
+                      property into something that benefits everyone.
                     </h6>
                   </div>
-                  <img style={{width: '50%'}} src={blueprint} alt="farmer's market blueprint" />
+                  <img style={{ width: '50%' }} src={blueprint} alt="farmer's market blueprint" />
                 </div>
               </Tab>
               <Tab eventKey="update" title="Updates">
