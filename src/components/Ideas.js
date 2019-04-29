@@ -1,7 +1,4 @@
 import React from "react";
-// import Carousel from "react-bootstrap/Carousel";
-// import Card from "react-bootstrap/Card";
-// import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form';
@@ -12,13 +9,9 @@ import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
 import CommentCard from './CommentCard'
-// import Nav from 'react-bootstrap/Nav'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-// import IdeaDescrip from './IdeaDescrip'
 import building from '../images/abandon1.jpg'
-// import Formpage from './FormPage'
-import Feedcard from './FeedCard'
 
 const db = firebase.database();
 const storage = firebase.storage();
@@ -127,7 +120,7 @@ export default class Ideas extends React.Component {
     const { thoughts, updates, title, idea, date, picURLs } = this.state;
     console.log(picURLs);
     return (
-      <div className="container">
+      <div style={{padding: '5%'}}>
         <Row>
           <Col>
             <div style={{ display: 'flex', justifyContent: 'center', padding: '10vh' }}>
@@ -182,7 +175,7 @@ export default class Ideas extends React.Component {
                   {updates.map((update, i) => {
                     return <CommentCard info={update} key={i} />
                   })}
-                  <div style={{marginTop: '4vh', border: '1px #BBBDC0 solid', backgroundColor: '#f5f5f5', width: '50%', marginLeft: '25%'}}>
+                  <div style={{marginTop: '4vh', padding: '5%', border: '1px #BBBDC0 solid', color: 'white', backgroundColor: '#272E3C', width: '50%', marginLeft: '25%'}}>
                     <h4>Project Launched</h4>
                     {date}
                   </div>

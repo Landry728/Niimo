@@ -9,12 +9,12 @@ export default class CommentCard extends Component {
     }
   }
   render() {
-    const { body, date } = this.state.info;
+    const { title, date } = this.state.info;
 
     return (
         <Card style={{ border: '1px #BBBDC0 solid', margin: 10, backgroundColor: '#f5f5f5', color: 'rgba(39, 46, 60, 0.85)' }}>
           <Card.Body>
-            <Card.Title>{body}</Card.Title>
+            <Card.Title>{title}</Card.Title>
             <Card.Text>{date}</Card.Text>
           </Card.Body>
         </Card>

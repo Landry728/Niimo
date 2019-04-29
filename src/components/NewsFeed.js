@@ -56,7 +56,7 @@ export default class NewsFeed extends Component {
     // console.log(shown)
     return (
       <>
-        <div className="container">
+        <div style={{padding: '5%'}}>
           {this.props.idea === true && <h3>Ideas</h3>}
           {this.props.idea === false && <h3>Updates</h3>}
           <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
