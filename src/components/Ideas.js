@@ -158,9 +158,10 @@ export default class Ideas extends React.Component {
                     <h3>About</h3>
                     <br />
                     <h6>
-                      My name is Landry Leopard. I'm an entrepreneur based out of Birmingham, Alabama. This project
-                      is designed to bring affordable fresh food to the inner city while transforming otherwise unused
-                      property into something that benefits everyone.
+                      My name is Landry Leopard. I am an entrepreneur based out of Birmingham, Alabama. Downtown Birmingham
+                      has always been thought of an area that is lacking in fresh fruits and vegetables as well as grocery stores,
+                      it is no secret. This project is designed to bring affordable fresh food to the inner-city while also
+                      transforming otherwise unused property into something that benefits everyone.
                     </h6>
                   </div>
                   <img style={{ width: '50%' }} src={blueprint} alt="farmer's market blueprint" />
