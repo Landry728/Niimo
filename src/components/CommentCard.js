@@ -1,37 +1,23 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
-import Col from 'react-bootstrap/Col'
-import "firebase/storage"
 
 export default class CommentCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            info: props.info,
-            picURL: ''
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      info: props.info
     }
-    render() {
-        const { title, comment } = this.state.info;
+  }
+  render() {
+    const { title, date } = this.state.info;
 
-        return (
-            <Col sm="3">
-                <Card bg="dark" text="white" style={{ border: '3px white solid', margin: 10 }}>
-
-                    <Card.Body className="text-light">
-                        <Card.Title>{title}</Card.Title>
-                        <Card.Text>{comment}</Card.Text>
-                    </Card.Body>
-                </Card>
-            </Col>
-        )
-    }
-
-
-
-
-
-
-
-
+    return (
+        <Card style={{ border: '1px #BBBDC0 solid', margin: 10, backgroundColor: '#f5f5f5', color: 'rgba(39, 46, 60, 0.85)' }}>
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>{date}</Card.Text>
+          </Card.Body>
+        </Card>
+    )
+  }
 }
