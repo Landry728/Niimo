@@ -12,6 +12,7 @@ import CommentCard from './CommentCard'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import building from '../images/abandon1.jpg'
+import blueprint from '../images/blueprint.jpg'
 
 const db = firebase.database();
 const storage = firebase.storage();
@@ -118,12 +119,11 @@ export default class Ideas extends React.Component {
 
   render() {
     const { thoughts, updates, title, idea, date, picURLs } = this.state;
-    console.log(picURLs);
     return (
-      <div style={{padding: '5%'}}>
+      <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
         <Row>
           <Col>
-            <div style={{ display: 'flex', justifyContent: 'center', padding: '10vh' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '5vh' }}>
               <h1 style={{ color: 'rgba(39, 46, 60, 0.85)' }}>
                 {title}
               </h1>
@@ -133,7 +133,7 @@ export default class Ideas extends React.Component {
         <Row>
           <Col>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <img style={{ width: '100%', height: 'auto' }} src={building} alt="picture" />
+              <img style={{ width: '100%', height: 'auto' }} src={building} alt="farmer's market" />
             </div>
           </Col>
           <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -154,7 +154,16 @@ export default class Ideas extends React.Component {
             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
               <Tab eventKey="home" title="Campaign">
                 <div style={{ backgroundColor: 'white', width: '100%', padding: '5%', border: '1px #BBBDC0 solid' }}>
-                  <h2>About</h2>
+                  <div className="container" style={{ textAlign: 'left'}}>
+                    <h3>About</h3>
+                    <br />
+                    <h6>
+                      My name is Landry Leopard. I'm an entrepreneur based out of Birmingham, Alabama. This project
+                      is designed to bring affordable fresh food to the inner city while transforming otherwise unused
+                      property into something that benefits everyone. 
+                    </h6>
+                  </div>
+                  <img style={{width: '50%'}} src={blueprint} alt="farmer's market blueprint" />
                 </div>
               </Tab>
               <Tab eventKey="update" title="Updates">
@@ -171,14 +180,13 @@ export default class Ideas extends React.Component {
                       <Button style={{ backgroundColor: '#429ADF', color: 'rgb(39, 46, 60)' }} type="submit" onClick={this.submitUpdate}>Share</Button>
                     </InputGroup.Append>
                   </InputGroup>
-
-                  {updates.map((update, i) => {
-                    return <CommentCard info={update} key={i} />
-                  })}
-                  <div style={{marginTop: '4vh', padding: '5%', border: '1px #BBBDC0 solid', color: 'white', backgroundColor: '#272E3C', width: '50%', marginLeft: '25%'}}>
+                  <div style={{ marginTop: '4vh', padding: '5%', border: '1px #BBBDC0 solid', color: 'white', backgroundColor: '#272E3C', width: '50%', marginLeft: '25%' }}>
                     <h4>Project Launched</h4>
                     {date}
                   </div>
+                  {updates.map((update, i) => {
+                    return <CommentCard info={update} index={i} key={i} />
+                  })}
                 </div>
               </Tab>
               <Tab eventKey="comment" title="Comments">
@@ -197,7 +205,7 @@ export default class Ideas extends React.Component {
                   </InputGroup>
 
                   {thoughts.map((thought, i) => {
-                    return <CommentCard info={thought} key={i} />
+                    return <CommentCard info={thought} index={i} key={i} />
                   })}
                 </div>
               </Tab>
