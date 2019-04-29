@@ -2,13 +2,6 @@ import React, { Component } from "react"
 import Row from 'react-bootstrap/Row'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import firebase from '../config/Firebase'
-import "firebase/database"
-import "firebase/storage"
-
-const db = firebase.database();
-const storage = firebase.storage();
-const ideaRef = db.ref("ideas");
 
 export default class IdeaDescrip extends Component {
     constructor(props, context) {
