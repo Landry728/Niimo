@@ -118,7 +118,7 @@ export default class Ideas extends React.Component {
   }
 
   render() {
-    const { thoughts, updates, title, idea, date, picURLs } = this.state;
+    const { thoughts, updates, title, idea, date } = this.state;
     return (
       <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
         <Row>

@@ -10,12 +10,9 @@ import ReactCompareImage from "react-compare-image";
 
 export default class Home extends Component {
   render() {
-    const { buttonBackground } = this.props.stylingColors;
     return (
       <>
-      <div style={{
-    
-      }}>
+      <div>
         <br />
         <br />
         <br />
