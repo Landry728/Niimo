@@ -83,7 +83,6 @@ export default class Home extends Component {
               fontSize: 70,
               width: "60%",
               letterSpacing: 1,
-              // marginTop: 20,
               marginBottom: "-6px"
             }}
           >
@@ -102,7 +101,7 @@ export default class Home extends Component {
           >
             Don't Stop Searching
           </p>
-          <h6
+          <h5
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -116,7 +115,7 @@ export default class Home extends Component {
             commercial estates for sale or lease that have been long forgotten. We hope that with this application the great 
             city of Birmingham, Alabama, can become greater. From facilitating the aspects of investments, to informative 
             collections of assorted properties. The capacity of this application for Birmingham's prosperity and expansion are boundless.
-          </h6>
+          </h5>
         </div>
         <Row>
           <Col
