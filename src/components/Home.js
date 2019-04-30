@@ -102,7 +102,7 @@ export default class Home extends Component {
           >
             Don't Stop Searching
           </p>
-          <h5
+          <h6 
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -111,12 +111,12 @@ export default class Home extends Component {
               paddingRight: '10%'
             }}
           >
-            This application is designed to combant a major issue in our home city: abandoned & vacant buildings.
+            This application is designed to combat a major issue in our home city: abandoned & vacant buildings.
             Via our platform, you can connect with others, sharing thoughts and ideas on specific 
             commercial estates for sale or lease that have been long forgotten. We hope that with this application the great 
             city of Birmingham, Alabama, can become greater. From facilitating the aspects of investments, to informative 
             collections of assorted properties. The capacity of this application for Birmingham's prosperity and expansion are boundless.
-          </h5>
+          </h6>
         </div>
         <Row>
           <Col

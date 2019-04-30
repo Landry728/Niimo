@@ -54,6 +54,7 @@ export default class Ideas extends React.Component {
       })
     }
   }
+
   // Post Update
   submitUpdate = (e) => {
     e.preventDefault();
@@ -62,9 +63,10 @@ export default class Ideas extends React.Component {
     newUpdate.set({
       id: postId,
       date: (new Date()).toDateString(),
-      body: update
+      title: update
     })
   }
+
   // Post Comment
   submitComment = (e) => {
     e.preventDefault();
@@ -73,9 +75,10 @@ export default class Ideas extends React.Component {
     newCommentRef.set({
       id: postId,
       date: (new Date()).toDateString(),
-      body: comment
+      title: comment
     })
   }
+
   // Get idea, pics, comments, and updates
   componentWillMount() {
     let thoughts = [];
@@ -91,12 +94,12 @@ export default class Ideas extends React.Component {
         })
         commentsRef.on('value', snap => {
           snap.forEach(child => {
-            thoughts.push(child.val());
+            thoughts.unshift(child.val());
           })
         })
         updateRef.on('value', snap => {
           snap.forEach(child => {
-            updates.push(child.val());
+            updates.unshift(child.val());
           })
         })
         this.setState({
@@ -117,7 +120,7 @@ export default class Ideas extends React.Component {
   }
 
   render() {
-    const { thoughts, updates, title, idea, date } = this.state;
+    const { thoughts, updates, title, idea } = this.state;
     return (
       <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
         <Row>
@@ -138,14 +141,15 @@ export default class Ideas extends React.Component {
           <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{ width: '20vw' }}>
               <h5>{idea}</h5>
-              <Button style={{ margin: '6vh', backgroundColor: '#429ADF', color: 'rgb(39, 46, 60)' }}>Support this Idea</Button>
+              <br />
               <h5>Created by: <br /> Landry Leopard</h5>
               <br />
               <h5>50 <br /> Supporters</h5>
               <p style={{ color: 'green', borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da', marginTop: '4vh' }}>
-                $5,000 pledged of $20,000 goal
+                $10,000 pledged of $20,000 goal
               </p>
-              <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7" }} now={25} />
+              <ProgressBar variant="success" style={{ backgroundColor: "#9FEDD7" }} now={50} />
+              <Button style={{ margin: '6vh', backgroundColor: '#429ADF', color: 'rgb(39, 46, 60)' }}>Support this Idea</Button>
             </div>
           </Col>
         </Row>
@@ -181,13 +185,15 @@ export default class Ideas extends React.Component {
                       <Button style={{ backgroundColor: '#429ADF', color: 'rgb(39, 46, 60)' }} type="submit" onClick={this.submitUpdate}>Share</Button>
                     </InputGroup.Append>
                   </InputGroup>
-                  <div style={{ marginTop: '4vh', padding: '5%', border: '1px #BBBDC0 solid', color: 'white', backgroundColor: '#272E3C', width: '50%', marginLeft: '25%' }}>
-                    <h4>Project Launched</h4>
-                    {date}
-                  </div>
+
                   {updates.map((update, i) => {
                     return <CommentCard info={update} index={i} key={i} />
                   })}
+
+                  <div style={{ marginTop: '4vh', padding: '5%', border: '1px #BBBDC0 solid', color: 'white', backgroundColor: '#272E3C', width: '50%', marginLeft: '25%' }}>
+                    <h4>Project Launched</h4>
+                    March 22 2019
+                  </div>
                 </div>
               </Tab>
               <Tab eventKey="comment" title="Comments">
