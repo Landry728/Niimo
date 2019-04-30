@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
+import Spinner from 'react-bootstrap/Spinner'
 
 const ideaRef = firebase.database().ref('ideas');
 const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
@@ -130,6 +131,13 @@ export default class NewIdea extends Component {
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Button style={{ backgroundColor: '#429ADF', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
+              <Spinner
+      as="span"
+      animation="border"
+      size="md"
+      role="status"
+      aria-hidden="true"
+    />
                 Submit 
               </Button>
             </Col>

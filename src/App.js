@@ -12,6 +12,7 @@ import Ideas from './components/Ideas';
 import NewUpdate from './components/NewUpdate';
 import StylingColors from './Styling'
 import FormPage from './components/FormPage';
+import SignIn from './components/SignIn'
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path="/newupdate" render={(props) => <NewUpdate {...props} stylingColors={StylingColors} />} />
             <Route path="/messanger" render={(props) => <Msger {...props} stylingColors={StylingColors} />} />
             <Route path="/form" component={FormPage} />
+            <Route path="/signin" render={(props) => <SignIn {...props} stylingColors={StylingColors} />} /> 
           </Switch>
         </Router>
       </div>

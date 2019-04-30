@@ -34,21 +34,21 @@ export default class Home extends Component {
               sliderLineWidth="0"
               sliderPositionPercentage="0"
               leftImageCss={{
-                marginTop: 100,
+                marginTop: 50,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "500px",
+                height: "450px",
                 width: "1000px",
                 borderRadius: 20,
                 bottom: 90
               }}
               rightImageCss={{
-                marginTop: 100,
+                marginTop: 50,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "500px",
+                height: "450px",
                 width: "1000px",
                 borderRadius: 20,
                 bottom: 90
@@ -68,7 +68,7 @@ export default class Home extends Component {
             style={{
               fontSize: 50,
               width: "60%",
-              marginTop: "10%",
+              marginTop: -15,
               marginLeft: "20%",
               marginRight: "20%",
               marginBottom: "7%",
@@ -83,7 +83,7 @@ export default class Home extends Component {
               fontSize: 70,
               width: "60%",
               letterSpacing: 1,
-              marginTop: 100,
+              // marginTop: 20,
               marginBottom: "-6px"
             }}
           >
@@ -96,27 +96,27 @@ export default class Home extends Component {
               marginLeft: "auto",
               fontSize: 20,
               width: "60%",
-              marginBottom: 30,
+              marginBottom: 20,
               marginTop: -30
             }}
           >
             Don't Stop Searching
           </p>
-          <h5
+          <h6
             style={{
               marginRight: "auto",
               marginLeft: "auto",
-              marginBottom: 50,
+              marginBottom: 30,
               paddingLeft: '10%',
               paddingRight: '10%'
             }}
           >
-            This application is designed to combat a major issue in our home city: abandoned & vacant buildings.
+            Our goal is to combat a major issue in our home city: abandoned & vacant buildings.
             Via our platform, you can connect with others, sharing thoughts and ideas on specific 
             commercial estates for sale or lease that have been long forgotten. We hope that with this application the great 
             city of Birmingham, Alabama, can become greater. From facilitating the aspects of investments, to informative 
             collections of assorted properties. The capacity of this application for Birmingham's prosperity and expansion are boundless.
-          </h5>
+          </h6>
         </div>
         <Row>
           <Col
