@@ -13,6 +13,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import building from '../images/abandon1.jpg'
 import blueprint from '../images/blueprint.jpg'
+import reno from '../images/reno.jpg'
 
 // FireBase constants
 const db = firebase.database();
@@ -158,7 +159,7 @@ export default class Ideas extends React.Component {
             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
               <Tab eventKey="home" title="Campaign">
                 <div style={{ backgroundColor: 'white', width: '100%', padding: '5%', border: '1px #BBBDC0 solid' }}>
-                  <div className="container" style={{ textAlign: 'left' }}>
+                  <div className="container" style={{ textAlign: 'left', margin: '4%' }}>
                     <h3>About</h3>
                     <br />
                     <h6>
@@ -167,9 +168,30 @@ export default class Ideas extends React.Component {
                       it is no secret. This project is designed to bring affordable fresh food to the inner-city while also 
                       transforming otherwise unused property into something that benefits everyone. 
                     </h6>
+                    <br />
+                    <h3>Why?</h3>
+                    <br />
+                    <h6>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit quisquam! Labore magnam 
+                      eligendi reprehenderit non, quidem rem dolores adipisci. Lorem ipsum dolor, sit amet consectetur 
+                      adipisicing elit. Eaque minima, totam corrupti libero aperiam error dicta in repellat fugit incidunt!
+                    </h6>
+                    <br />
+                    <h3>How?</h3>
+                    <br />
+                    <h6>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex dolore esse voluptatem sit? Dignissimos, 
+                      soluta? Quis, recusandae quia? Laborum, blanditiis quod, vitae perspiciatis velit nisi sit cum, sed 
+                      odio nam quos? Error odio facere voluptatem iusto doloremque doloribus beatae sapiente!
+                    </h6>
+                    <br />
+                    <h3>Additional Pictures</h3>
                   </div>
-                  <br />
-                  <img style={{ width: '50%' }} src={blueprint} alt="farmer's market blueprint" />
+                  <h5>Potential Market Layout</h5>
+                  <img style={{ width: '50%', marginBottom: '2%' }} src={blueprint} alt="farmer's market blueprint" />
+                  <hr />
+                  <h5 style={{marginTop: '2%'}}>Renovations Underway</h5>
+                  <img style={{ width: '50%', marginBottom: '2%' }} src={reno} alt="farmer's market blueprint" />
                 </div>
               </Tab>
               <Tab eventKey="update" title="Updates">
