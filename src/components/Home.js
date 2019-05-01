@@ -25,14 +25,13 @@ export default class Home extends Component {
             justifyContent: "center",
           }}
         >
-          <div style={{}}>
+          <div>
             <ReactCompareImage
-              autoReloadSpan='0'
               hover="true"
               sliderLineColor="black"
               handleSize="0"
               sliderLineWidth="0"
-              sliderPositionPercentage="0"
+              sliderPositionPercentage="0.5"
               leftImageCss={{
                 marginTop: 50,
                 display: "flex",
