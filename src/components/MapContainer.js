@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
 import ApiKey from '../config/GoogleApiKey'
-import GreenPin from '../images/greenPin.png'
-import BluePin from '../images/bluePin.png'
+import GreenPin from '../images/64idea.png'
+import BluePin from '../images/64empty.png'
 import Card from 'react-bootstrap/Card'
-import blupin from '../images/blue32.png'
-import grnpin from '../images/green32.png'
+import blupin from '../images/64empty.png'
+import grnpin from '../images/64idea.png'
 import Col from 'react-bootstrap/Col'
 import firebase from '../config/Firebase'
 import "firebase/database"
@@ -68,6 +68,7 @@ export class MapContainer extends Component {
           <Card style={{ position: 'fixed', alignItems: 'left', width: '13rem', backgroundColor: 'white', border: '1px solid', borderColor: '#BBBDC0', marginTop: 20, zIndex: 5 }}>
             <Card.Body className="text-dark">
               <Card.Title textDecoration='underlined'>Legend</Card.Title>
+              <hr />
               <img src={blupin} alt="pins" />
               = Need Ideas
               <br />
@@ -89,45 +90,43 @@ export class MapContainer extends Component {
           initialCenter={{ lat: 33.515259, lng: -86.810442 }}>
           <Marker
             onClick={this.onMarkerClick}
-            title={'Building 1'}
-            name={'Abandoned Building 1'}
-            address={'123 Main St'}
+            title={'4 Ideas Here!'}
+            address={'1200 1st Ave North'}
             position={{ lat: 33.512396, lng: -86.813693 }}
             icon={{
               url: GreenPin,
             }} />
           <Marker
             onClick={this.onMarkerClick}
-            title={'Building 2'}
-            name={'Abandoned Building 2'}
-            address={'123 Main St'}
+            title={'No Ideas Here!'}
+            address={'1800 1st Ave North'}
             position={{ lat: 33.513443, lng: -86.810832 }}
             icon={{
               url: BluePin,
             }} />
           <Marker
             onClick={this.onMarkerClick}
-            title={'Building 3'}
+            title={'2 Ideas Here!'}
             name={'Abandoned Building 3'}
-            address={'123 Main St'}
+            address={'1200 1st Ave North'}
             position={{ lat: 33.514084, lng: -86.808462 }}
             icon={{
               url: GreenPin,
             }} />
           <Marker
             onClick={this.onMarkerClick}
-            title={'Building 4'}
+            title={'No Ideas Here!'}
             name={'Abandoned Building 4'}
-            address={'123 Main St'}
+            address={'1200 1st Ave North'}
             position={{ lat: 33.491174, lng: -86.804705 }}
             icon={{
               url: BluePin,
             }} />
           <Marker
             onClick={this.onMarkerClick}
-            title={'Building 5'}
+            title={'5 Ideas Here!'}
             name={'Abandoned Building 5'}
-            address={'123 Main St'}
+            address={'1200 1st Ave North'}
             position={{ lat: 33.509311, lng: -86.808677 }}
             icon={{
               url: GreenPin,

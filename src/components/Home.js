@@ -27,7 +27,7 @@ export default class Home extends Component {
         >
           <div>
             <ReactCompareImage
-              hover="true"
+              hover="false"
               sliderLineColor="black"
               handleSize="0"
               sliderLineWidth="0"
