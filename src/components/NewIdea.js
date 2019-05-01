@@ -53,7 +53,6 @@ export default class NewIdea extends Component {
       return <Spinner
       as="span"
       animation="border"
-      size="md"
       role="status"
       aria-hidden="true"
     />
@@ -168,7 +167,7 @@ export default class NewIdea extends Component {
               <Button style={{ backgroundColor: '#429ADF', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
               {this.renderRedirect()}
               {this.renderSpinner()}
-                Submit 
+                {" "}Submit 
               </Button>
             </Col>
           </Row>

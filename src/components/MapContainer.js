@@ -36,7 +36,6 @@ export class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-    console.log(props, marker)
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -200,7 +199,7 @@ export class MapContainer extends Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
             <div>
-              <h4>{this.state.selectedPlace.name}</h4>
+              <h4>{this.state.selectedPlace.title}</h4>
               <h6>{this.state.selectedPlace.address}</h6>
               <a href="/idea/29">More Info</a>
             </div>
