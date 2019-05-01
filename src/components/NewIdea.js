@@ -8,6 +8,7 @@ import firebase from '../config/Firebase'
 import "firebase/database"
 import "firebase/storage"
 import Spinner from 'react-bootstrap/Spinner'
+import {Redirect} from 'react-router-dom';
 
 const ideaRef = firebase.database().ref('ideas');
 const numImgRef = firebase.database().ref('numImgs/-Lcbxoi4WrlcOpcT6aFH/numOfImgs');
@@ -24,6 +25,37 @@ export default class NewIdea extends Component {
       state: '',
       zip: '',
       selectedImages: [],
+      redirect: false,
+      spinner: false
+    }
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/feed' />
+    }
+  }
+
+  setSpinner = () => {
+    this.setState({
+      spinner: true
+    })
+  }
+
+  renderSpinner = () => {
+    if (this.state.spinner) {
+      return <Spinner
+      as="span"
+      animation="border"
+      role="status"
+      aria-hidden="true"
+    />
     }
   }
 
@@ -58,6 +90,7 @@ export default class NewIdea extends Component {
   }
 
   submitIdea = (e) => {
+    this.setSpinner();
     e.preventDefault();
     let { title, idea, address, city, state, zip, selectedImages } = this.state;
     numImgRef.once('value', snap => {
@@ -71,6 +104,7 @@ export default class NewIdea extends Component {
         let newImageRef = imageRef.child(newNum.toString())
         newImageRef.put(img).then(snapshot => {
           console.log('Uploaded a blob or file!');
+          this.setRedirect();
         });
       })
       // Save Post
@@ -131,14 +165,9 @@ export default class NewIdea extends Component {
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
               <Button style={{ backgroundColor: '#429ADF', marginTop: '4vh', padding: '1vh', }} size= 'lg' variant="secondary" type="submit" onClick={this.submitIdea}>
-              <Spinner
-      as="span"
-      animation="border"
-      size="md"
-      role="status"
-      aria-hidden="true"
-    />
-                Submit 
+              {this.renderRedirect()}
+              {this.renderSpinner()}
+                {" "}Submit 
               </Button>
             </Col>
           </Row>

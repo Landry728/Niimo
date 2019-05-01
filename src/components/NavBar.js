@@ -17,9 +17,9 @@ class NavBar extends Component {
         <Nav.Link style={{ color: 'white' }} href="/feed">Explore</Nav.Link>
         <Nav.Link style={{ color: 'white' }} href="/map">Locate</Nav.Link>
         </Nav>
-        <div style={{marginLeft: '79%', marginRight: '3%'}} className="col-auto">
+        <div style={{marginLeft: '78%'}} className="col-auto">
         <Nav>
-        <Nav.Link className="justify-content-end" style={{ color: 'white',  }} href="/signin">Sign in</Nav.Link>
+        <Nav.Link style={{ color: 'white',  }} href="/signin">Sign in</Nav.Link>
         </Nav>
         </div>
         </Navbar>
