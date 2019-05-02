@@ -19,7 +19,7 @@ export default class FeedCard extends Component {
     this.state = {
       info: props.info,
       picURL: '',
-      likes: 189,
+      likes: props.info.likes,
       updated: false
     }
     this.updateLikes = this.updateLikes.bind(this);
@@ -75,17 +75,17 @@ export default class FeedCard extends Component {
             <Card.Title className="titleFont">{title}</Card.Title>
             <hr />
             <Card.Text>{description}</Card.Text>
-            <Row style={{justifyContent: 'center'}}>
-                
-                  <Card.Link className="linkFont" style={{ onHover: 'bold', color: '#4B3572', marginRight:"8vh" }} href={href}>Read More  </Card.Link>
-                  <button onClick={this.updateLikes} style={{ onHover: 'bold', color: 'blue' }}> <FontAwesomeIcon icon={faThumbsUp} />
-                  {this.state.likes}
-                  
-                  </button>
-                 
-                  <div>
-     <FontAwesomeIcon icon="stroopwafel" />
-  </div>
+            <Row style={{ justifyContent: 'center' }}>
+
+              <Card.Link className="linkFont" style={{ onHover: 'bold', color: '#4B3572', marginRight: "8vh" }} href={href}>Read More</Card.Link>
+              <button onClick={this.updateLikes} style={{ onHover: 'bold', color: 'blue' }}> <FontAwesomeIcon icon={faThumbsUp} />
+                {this.state.likes}
+
+              </button>
+
+              <div>
+                <FontAwesomeIcon icon="stroopwafel" />
+              </div>
             </Row>
           </Card.Body>
         </Card>
