@@ -142,7 +142,7 @@ export default class Ideas extends React.Component {
             </div>
           </Col>
           <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ width: '20vw' }}>
+            <div style={{ width: '33vw' }}>
               <h5>{idea}</h5>
               <br />
               <h5>Created by: <br /> Landry Leopard</h5>

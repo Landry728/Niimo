@@ -54,7 +54,6 @@ export class MapContainer extends Component {
 
   render() {
     const style = {
-      // width: '50%',
       height: '100%',
       'marginLeft': 'auto',
       'marginRight': 'auto',
