@@ -11,8 +11,10 @@ import "firebase/storage"
 import CommentCard from './CommentCard'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import building from '../images/abandon1.jpg'
 import blueprint from '../images/blueprint.jpg'
+import reno from '../images/reno.jpg'
+import empty from '../images/emptyDepot.jpg'
+import building from '../images/thisgonebedepot.jpg'
 
 // FireBase constants
 const db = firebase.database();
@@ -128,6 +130,7 @@ export default class Ideas extends React.Component {
             <div style={{ display: 'flex', justifyContent: 'center', padding: '5vh' }}>
               <h1 style={{ color: 'rgba(39, 46, 60, 0.85)' }}>
                 {title}
+                <hr />
               </h1>
             </div>
           </Col>
@@ -139,7 +142,7 @@ export default class Ideas extends React.Component {
             </div>
           </Col>
           <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ width: '20vw' }}>
+            <div style={{ width: '33vw' }}>
               <h5>{idea}</h5>
               <br />
               <h5>Created by: <br /> Landry Leopard</h5>
@@ -158,17 +161,46 @@ export default class Ideas extends React.Component {
             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
               <Tab eventKey="home" title="Campaign">
                 <div style={{ backgroundColor: 'white', width: '100%', padding: '5%', border: '1px #BBBDC0 solid' }}>
-                  <div className="container" style={{ textAlign: 'left' }}>
+                  <div className="container" style={{ textAlign: 'left', margin: '4%' }}>
                     <h3>About</h3>
                     <br />
                     <h6>
-                      My name is Landry Leopard. I am an entrepreneur based out of Birmingham, Alabama. Downtown Birmingham
-                      has always been thought of an area that is lacking in fresh fruits and vegetables as well as grocery stores,
-                      it is no secret. This project is designed to bring affordable fresh food to the inner-city while also
-                      transforming otherwise unused property into something that benefits everyone.
+                      My name is Landry Leopard. I am an entrepreneur based out of Birmingham, Alabama. Birmingham itself has always
+                      been thought of an area that is lacking in the Information Technology field. Although it also has always been
+                      thought of an area that supports it's local businesses tremendously. With the support of Birmingham and it's people,
+                      we can change the field of Technology here, and I have a fully laid out plan for it.
                     </h6>
+                    <br />
+                    <h3>Why?</h3>
+                    <br />
+                    <h6>
+                      It's almost self explanatory. Technology has done nothing but grow and expand in amazing transformations over the past
+                      decades. Birmingham has been trying it's best to have that same kind of growth and expansion. If we could bring the
+                      amazing companies here, and even help create and boom them there, Birmingham will be built to have a bright future in 
+                      all aspects. 
+                    </h6>
+                    <br />
+                    <h3>How?</h3>
+                    <br />
+                    <h6>
+                      By involving people such as yourself. The people of Birmingham have always been extremely supportive of the local
+                      businesses around them. Alabama and the Southeast in it's entirety is full of locally owned companies that citizens love to support
+                      and watch grow. With this building, we can provide incubation, guidance, and the tools that these
+                      companies will need to become the next Tech Giant. This building can bring in all kinds of revenue and create countless jobs
+                      for Alabama. When I say revenue, I mean the market size can not only double, but bring in 5 billion dollars every 5 years, for
+                      a very long prosperous time. Come support me, watch Alabama grow, and become a part of something that we will cherish for years 
+                      to come.
+                    </h6>
+                    <br />
+                    <h3>Additional Pictures</h3>
                   </div>
-                  <img style={{ width: '50%' }} src={blueprint} alt="farmer's market blueprint" />
+                  <h5>Potential Layout</h5>
+                  <img style={{ width: '50%', marginBottom: '2%' }} src={blueprint} alt="farmer's market blueprint" />
+                  <hr />
+                  <h5 style={{marginTop: '2%'}}>Renovations Underway</h5>
+                  <img style={{ width: '50%', marginBottom: '2%' }} src={reno} alt="farmer's market blueprint" />
+                  <hr />
+                  <img style={{ width: '50%', marginBottom: '-4%' }} src={empty} alt="emptydepot" />
                 </div>
               </Tab>
               <Tab eventKey="update" title="Updates">

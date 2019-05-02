@@ -57,8 +57,8 @@ export default class NewsFeed extends Component {
     return (
       <>
         <div style={{padding: '5%'}}>
-          {this.props.idea === true && <h3>Ideas</h3>}
-          {this.props.idea === false && <h3>Updates</h3>}
+          {this.props.idea === true && <h1>Ideas</h1>}
+          {this.props.idea === false && <h1>Updates</h1>}
           <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: 20 }}>
             {this.state.shown.map((info, i) => {
               console.log(this.state.shown);

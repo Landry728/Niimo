@@ -40,7 +40,7 @@ export default class SignIn extends Component {
                         <Row className="justify-content-md-center">
                            <p style ={{paddingTop: "8px", marginRight:'0%'}}> New to niimo?</p> 
                            <Nav style={{marginLeft:"-11px", marginTop: '0vh'}}>
-                               <NavLink href="/home" > Sign Up!</NavLink>
+                               <NavLink href="/" > Sign Up!</NavLink>
                             </Nav>
                         </Row>
                     </Container>
