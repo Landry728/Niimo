@@ -6,13 +6,16 @@
 .pnp.js
 /src/config
 /.env
+src/*
+public/*
+build/static/css/*.map
+build/static/js/*.map
 
 
 # testing
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store

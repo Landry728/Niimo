@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
     "firebase": "^5.9.3",
     "google-maps-react": "^2.0.2",
     "jquery": "^3.3.1",
+    "path": "^0.12.7",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-compare-image": "^0.8.1",
@@ -18,7 +20,7 @@
     "typescript": "^3.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
