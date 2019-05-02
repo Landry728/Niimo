@@ -4,6 +4,12 @@ import Col from 'react-bootstrap/Col'
 import firebase from '../config/Firebase'
 import "firebase/storage"
 import '../App.css'
+import Row from 'react-bootstrap/Row';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+library.add(faThumbsUp)
+
 
 const imageRef = firebase.storage().ref('images')
 
@@ -12,19 +18,43 @@ export default class FeedCard extends Component {
     super(props);
     this.state = {
       info: props.info,
-      picURL: ''
+      picURL: '',
+      likes: 189,
+      updated: false
     }
+    this.updateLikes = this.updateLikes.bind(this);
+  }
+  updateLikes() {
+
+    if (!this.state.updated) {
+      this.setState((prevState, props) => {
+        return {
+          likes: prevState.likes + 1,
+          updated: true
+        };
+      });
+    } else {
+
+      this.setState((prevState, props) => {
+        return {
+          likes: prevState.likes - 1,
+          updated: false
+        };
+      });
+    }
+
+
   }
   componentWillMount() {
     const { picId } = this.state.info;
     if (typeof picId === 'number') {
       imageRef.child(`${picId}`).getDownloadURL().then(url => {
-        this.setState({picURL: url});
+        this.setState({ picURL: url });
       })
     }
     if (typeof picId === 'object') {
       imageRef.child(`${picId[0]}`).getDownloadURL().then(url => {
-        this.setState({picURL: url});
+        this.setState({ picURL: url });
       })
     }
   }
@@ -45,7 +75,18 @@ export default class FeedCard extends Component {
             <Card.Title className="titleFont">{title}</Card.Title>
             <hr />
             <Card.Text>{description}</Card.Text>
-            <Card.Link className="linkFont" style={{onHover: 'bold', color: '#4B3572'}} href={href}>Read More</Card.Link>
+            <Row style={{justifyContent: 'center'}}>
+                
+                  <Card.Link className="linkFont" style={{ onHover: 'bold', color: '#4B3572', marginRight:"8vh" }} href={href}>Read More  </Card.Link>
+                  <button onClick={this.updateLikes} style={{ onHover: 'bold', color: 'blue' }}> <FontAwesomeIcon icon={faThumbsUp} />
+                  {this.state.likes}
+                  
+                  </button>
+                 
+                  <div>
+     <FontAwesomeIcon icon="stroopwafel" />
+  </div>
+            </Row>
           </Card.Body>
         </Card>
       </Col>
